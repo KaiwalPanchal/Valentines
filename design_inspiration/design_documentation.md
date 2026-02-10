@@ -11,14 +11,14 @@ design_inspiration/
 ├── page0_landing/          ← Purple gradients, sparkle/star effects
 ├── page1_scratchcard/      ← Silver foil textures, scratch overlays
 ├── page2_profile/          ← Paper textures, stamps, polaroid frames
-├── page3_evidence/         ← Cork board, thumbtacks, red string, note cards
+├── page3_evidence/         ← AI-generated evidence board bg + clue illustrations
 ├── page4_interrogation/    ← Dark spotlight backgrounds, quiz UI refs
 ├── page5_clues/            ← Detective desk, magnifying glass cursor
 ├── page6_puzzle/           ← Heart templates, particle effects
 ├── page7_verdict/          ← Courtroom backgrounds, kinetic typography refs
 ├── page8_ask/              ← Starry night sky, shooting star refs
 ├── page9_celebration/      ← Confetti overlays, fireworks
-├── characters/             ← Stitch & Barbie PNGs
+├── characters/             ← Stitch PNGs
 ├── audio/                  ← All SFX and music files
 └── fonts/                  ← Downloaded font files (backup)
 ```
@@ -60,33 +60,23 @@ design_inspiration/
 
 ---
 
-## 3. 🪵 Cork Board Texture
+## 3. 🎨 Evidence Board — AI-Generated Art
 
-**What you need**: A seamless or large cork board texture for the Evidence Room (Page 3) background.
+**What you'll create**: Use your own AI image generator (Midjourney, DALL-E, etc.) with custom prompts to create artwork for the Evidence Room (Page 3) — both the background scene and the 8 individual clue illustrations.
 
-| Source | What to Search | Link |
-|---|---|---|
-| **Textures4Photoshop** | "Corkboard background seamless cork texture" | [textures4photoshop.com](https://www.textures4photoshop.com) |
-| **Freepik** | "cork board texture seamless" or "corkboard" | [freepik.com](https://www.freepik.com) |
-| **Unsplash** | "cork board" or "cork texture" | [unsplash.com](https://unsplash.com) |
+> **📌 You generate these yourself with custom prompts and drop them into `page3_evidence/`.**
 
-> **📌 Tip**: Get one that's **seamless/tileable** so it can cover the full page. Use CSS `background-repeat: repeat;`.
-
-**Save to**: `page3_evidence/`
-
----
-
-## 4. 📌 Thumbtacks / Pushpins
-
-**What you need**: Realistic pushpin PNGs with transparent backgrounds (red, silver, or mixed colors).
-
-| Source | What to Search | Link |
-|---|---|---|
-| **Vecteezy** | "Push Pin PNG" or "Thumbtack PNG" (~1,600 options) | [vecteezy.com](https://www.vecteezy.com) |
-| **Freepik** | "thumbtack PNG transparent" or "pushpin transparent background" | [freepik.com](https://www.freepik.com) |
-| **Pngtree** | "pushpin PNG" (realistic, 3D options) | [pngtree.com](https://www.pngtree.com) |
-
-> **📌 Tip**: Get a few different angles/colors. Red and silver look best on cork. Make sure they have **shadows** for realism.
+**Assets to generate**:
+1. **Board background** — A moody, purple-toned detective evidence room / mystery wall scene
+2. **8 clue illustrations** — Stylized, illustrated icons for each evidence item:
+   - 💜 Purple Heart
+   - ⚖️ Law Book
+   - 🛸 Stitch Plushie
+   - 💅 Pink/glam reference
+   - 🍨 Ice Cream
+   - 📖 Poetry Journal
+   - 🎵 Music Note
+   - 🚗 Car Keys
 
 **Save to**: `page3_evidence/`
 
@@ -146,20 +136,6 @@ design_inspiration/
 
 ---
 
-## 8. 💅 Barbie Character PNG
-
-**What you need**: Barbie illustration or icon PNG for the easter egg.
-
-| Source | What to Search | Notes |
-|---|---|---|
-| **Pngimg.com** | "Barbie" (62 PNGs) | [pngimg.com](https://pngimg.com/imgs/heroes/barbie/) |
-| **PurePNG** | "Barbie" (CC0, high quality) | [purepng.com](https://purepng.com) |
-| **HiClipart** | "Barbie transparent" | [hiclipart.com](https://www.hiclipart.com) |
-
-> **📌 Tip**: A small icon-sized Barbie works for the corner easter egg. Doesn't need to be huge.
-
-**Save to**: `characters/`
-
 ---
 
 ## 9. 🌌 Starry Night Sky Background
@@ -212,22 +188,17 @@ design_inspiration/
 
 ## 12. 🔊 Sound Effects (SFX)
 
-**What you need**: ~20 individual sound effects. All should be short (0.5-3 seconds), MP3 or WAV format.
+**Most SFX are generated programmatically** via the Web Audio API (~13 sounds: clicks, chimes, buzzes, pops, whooshes). No files needed for those.
 
-| SFX Category | Sounds Needed | Best Source |
+**You only need to source 3 realistic files:**
+
+| SFX | What to Search | Best Source |
 |---|---|---|
-| **Scratch** | Realistic scratchcard scratching | [ZapSplat](https://www.zapsplat.com) — search "scratch card" |
-| **UI Clicks** | Button click, select, hover | [OpenGameArt](https://opengameart.org) — "51 UI sound effects" by Kenney (CC0) |
-| **Paper** | Shuffle, rustle, slide | [ZapSplat](https://www.zapsplat.com) — search "paper shuffle" |
-| **Collect/Pop** | Satisfying pop for evidence collection | [Freesound](https://freesound.org) — search "pop collect" |
-| **Chimes** | Correct answer, clue found, completion | [Uppbeat](https://uppbeat.io) — search "chime" or "winner" |
-| **Wrong Answer** | Gentle buzz | [ZapSplat](https://www.zapsplat.com) — search "wrong answer gentle" |
-| **Dramatic** | Gavel, confession reveal | [ZapSplat](https://www.zapsplat.com) — search "gavel" |
-| **Heartbeat** | Subtle heartbeat loop | [Freesound](https://freesound.org) — search "heartbeat" |
-| **Celebration** | Cheers, confetti pop, fireworks | [Uppbeat](https://uppbeat.io) — search "celebration" |
-| **Whoosh** | Page transitions | [ZapSplat](https://www.zapsplat.com) — search "whoosh soft" |
+| **Scratch card** | "scratch card sound effect" | [ZapSplat](https://www.zapsplat.com) or [Freesound](https://freesound.org) (CC0 filter) |
+| **Heartbeat** | "heartbeat loop subtle" | [Freesound](https://freesound.org) — search "heartbeat" (CC0 filter) |
+| **Gavel** | "gavel strike courtroom" | [ZapSplat](https://www.zapsplat.com) or [Freesound](https://freesound.org) |
 
-> **📌 Tip**: ZapSplat (free account) and Freesound (CC0 filter) are the best for free, high-quality SFX. OpenGameArt's Kenney pack gives you 51 UI sounds in one download.
+> **📌 Tip**: Short clips (0.5-3s), MP3 format. The heartbeat should loop cleanly.
 
 **Save to**: `audio/`
 
@@ -267,7 +238,7 @@ These aren't assets to use directly — they're **visual references** to guide t
 | Page | Search on Dribbble/Pinterest/Behance | Keywords |
 |---|---|---|
 | **Page 2** (Case File) | "detective case file UI" "police dossier design" | Noir, vintage, paper |
-| **Page 3** (Cork Board) | "detective conspiracy board web" "cork board UI" | Skeuomorphic, pins, string |
+| **Page 3** (Evidence Board) | "detective evidence wall art" "mystery game UI" | Moody, illustrated, purple |
 | **Page 4** (Interrogation) | "dark quiz UI game" "spotlight room game design" | Noir, dramatic, contrast |
 | **Page 5** (Hidden Object) | "hidden object game UI" "detective desk overhead" | Top-down, cluttered, warm |
 | **Page 6** (Heart Puzzle) | "heart jigsaw puzzle game" "photo puzzle web" | Dreamy, soft, glowing |
@@ -282,44 +253,32 @@ These aren't assets to use directly — they're **visual references** to guide t
 ### Textures & Backgrounds
 - [ ] Silver scratch card foil texture (PNG, transparent or solid)
 - [ ] Aged paper/parchment texture (JPG/PNG, 2000px+)
-- [ ] Cork board texture (seamless/tileable)
 - [ ] Starry purple night sky (JPG, high-res)
 - [ ] Purple gradient (can be CSS, but having a reference helps)
+
+### AI-Generated (created during development)
+- [ ] Evidence board background (moody detective scene)
+- [ ] 8 evidence clue illustrations
 
 ### UI Elements
 - [ ] Polaroid photo frame (PNG, transparent)
 - [ ] CONFIDENTIAL rubber stamp (PNG, transparent, red, distressed)
 - [ ] URGENT rubber stamp (PNG, transparent, red, distressed)
-- [ ] Thumbtacks/pushpins × 3-4 variations (PNG, transparent, with shadow)
 - [ ] Magnifying glass cursor (SVG, 32×32)
 - [ ] Confetti overlays (PNG, purple/pink/white tones)
 - [ ] Speech bubble graphic (PNG or SVG)
-- [ ] Red string/thread graphic (optional, PNG)
 
 ### Character Art
 - [ ] Stitch — celebratory pose (PNG, transparent)
 - [ ] Stitch — cute/speech bubble pose (PNG, transparent)
-- [ ] Barbie — small icon (PNG, transparent, for easter egg)
 
 ### Audio
-- [ ] Scratch card SFX
-- [ ] Button click SFX
-- [ ] Paper shuffle SFX
-- [ ] Evidence collect pop SFX
-- [ ] Correct answer chime
-- [ ] Wrong answer buzz (gentle)
-- [ ] Clue discovery chime
-- [ ] Puzzle piece snap
-- [ ] Completion chime
-- [ ] Heartbeat (subtle loop)
-- [ ] Gavel sound
-- [ ] Whoosh transition
-- [ ] Stitch playful SFX
-- [ ] Confetti pop
-- [ ] Cheers/celebration
-- [ ] Fireworks
+- [ ] Scratch card SFX (realistic, file)
+- [ ] Heartbeat SFX (subtle loop, file)
+- [ ] Gavel SFX (realistic, file)
 - [ ] "Pyaar Ke Liye" — Shankar Mahadevan (MP3)
 - [ ] "Meri Kahani" — Atif Aslam (MP3, optional)
+- ✅ ~13 other SFX generated programmatically (no files needed)
 
 ### Photos (You Provide)
 - [ ] Your photo (for suspect profile)
