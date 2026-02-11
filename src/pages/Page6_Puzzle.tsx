@@ -79,30 +79,17 @@ export const Page6_Puzzle = () => {
         tl: false, tr: false, bl: false, br: false
     });
 
-    const isComplete = Object.values(placedPieces).every(v => v);
+    const placedCount = Object.values(placedPieces).filter(v => v).length;
+    const isComplete = placedCount === 4;
 
     const handleDragEnd = (event: DragEndEvent) => {
         const { active, over } = event;
 
         if (over && over.id === `target-${active.id}`) {
-            // Correct drop
             playSFX('snap');
             setPlacedPieces(prev => ({ ...prev, [active.id]: true }));
-
-            // Check completion in state update logic or effect
-        } else {
-            // Wrong drop
-            // playSFX('click'); // Optional feedback
         }
     };
-
-    if (isComplete) {
-        // Auto advance
-        setTimeout(() => {
-            playSFX('heartbeat'); // Start heartbeat loop (simulated by game context or audio effect)
-            setTimeout(() => goToPage(7), 3000);
-        }, 500);
-    }
 
     return (
         <PageTransition>
@@ -118,9 +105,15 @@ export const Page6_Puzzle = () => {
                     gap: '3rem'
                 }}>
 
-                    <h2 style={{ fontFamily: 'var(--font-typewriter)', color: 'var(--purple-light)' }}>
-                        RESTORE THE HEART
+                    <h2 style={{ fontFamily: 'var(--font-typewriter)', color: 'var(--purple-light)', marginBottom: '0.5rem' }}>
+                        These moments built something.
                     </h2>
+                    <p style={{ fontFamily: 'var(--font-typewriter)', color: 'var(--cream)', fontSize: '1rem', opacity: 0.7, marginBottom: '0.5rem' }}>
+                        Put them back together.
+                    </p>
+                    <div style={{ fontFamily: 'monospace', color: 'var(--white)', fontSize: '1rem' }}>
+                        {placedCount}/4 pieces placed
+                    </div>
 
                     {/* Puzzle Board (Center) */}
                     <div style={{
@@ -160,15 +153,48 @@ export const Page6_Puzzle = () => {
 
                     {isComplete && (
                         <div style={{
-                            position: 'absolute',
-                            top: '20%',
-                            color: '#ff4d4d',
-                            fontFamily: 'var(--font-display)',
-                            fontSize: '2rem',
-                            textShadow: '0 0 10px red',
+                            textAlign: 'center',
+                            color: 'var(--white)',
                             animation: 'fadeIn 1s'
                         }}>
-                            HEART RESTORED
+                            <div style={{
+                                fontFamily: 'var(--font-typewriter)',
+                                fontSize: '1rem',
+                                lineHeight: '2',
+                                marginBottom: '1.5rem',
+                                whiteSpace: 'pre-line',
+                                color: 'var(--cream)'
+                            }}>
+                                {"Every moment.\nEvery laugh.\nEvery drive.\nEvery conversation.\n\nThey all led here."}
+                            </div>
+                            <div style={{
+                                fontFamily: 'var(--font-typewriter)',
+                                fontSize: '0.9rem',
+                                color: 'var(--purple-light)',
+                                marginBottom: '1.5rem'
+                            }}>
+                                The court has reviewed all evidence. A verdict has been reached.
+                            </div>
+                            <button
+                                onClick={() => {
+                                    playSFX('click');
+                                    goToPage(7);
+                                }}
+                                style={{
+                                    padding: '1rem 3rem',
+                                    fontSize: '1.2rem',
+                                    fontFamily: 'var(--font-display)',
+                                    background: 'var(--purple-mid)',
+                                    color: 'var(--white)',
+                                    borderRadius: '8px',
+                                    boxShadow: '0 0 20px rgba(107, 63, 160, 0.6)',
+                                    cursor: 'pointer',
+                                    border: 'none',
+                                    animation: 'slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                                }}
+                            >
+                                ⚖️ HEAR THE VERDICT →
+                            </button>
                         </div>
                     )}
 

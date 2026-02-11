@@ -43,10 +43,12 @@ export const Page1_Scratch = () => {
             }
 
             // Add "SCRATCH HERE" text
-            ctx.font = 'bold 24px Courier New';
+            ctx.font = 'bold 16px Courier New';
             ctx.fillStyle = '#666';
             ctx.textAlign = 'center';
-            ctx.fillText('SCRATCH TO REVEAL', canvas.width / 2, canvas.height / 2);
+            ctx.fillText('⚠️ CONFIDENTIAL LEGAL DOCUMENT ⚠️', canvas.width / 2, canvas.height / 2 - 15);
+            ctx.font = 'bold 14px Courier New';
+            ctx.fillText('DO NOT SCRATCH', canvas.width / 2, canvas.height / 2 + 15);
         };
 
         resizeCanvas();
@@ -175,24 +177,32 @@ export const Page1_Scratch = () => {
                     }}>
                         CASE FILE #0214 / OPENED
                     </h2>
+                    <p style={{
+                        fontFamily: 'var(--font-typewriter)',
+                        fontSize: '1rem',
+                        color: 'var(--purple-light)',
+                        opacity: 0.8
+                    }}>
+                        The Boy vs His Feelings
+                    </p>
 
                     {isRevealed && (
                         <div style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', lineHeight: '1.6' }}>
                             <TypewriterText
-                                text="DETECTIVE: Disha"
+                                text="You have been assigned a highly sensitive case."
                                 speed={30}
                             />
                             <div style={{ height: '1rem' }} />
                             <TypewriterText
-                                text="STATUS: Active Investigation"
+                                text="The suspect is believed to be dangerously in love."
                                 speed={30}
-                                delay={1000}
+                                delay={1500}
                             />
                             <div style={{ height: '1rem' }} />
                             <TypewriterText
-                                text="MISSION: Locate the missing Valentine."
+                                text="Your job: review the evidence."
                                 speed={30}
-                                delay={2500}
+                                delay={3500}
                             />
                         </div>
                     )}
@@ -213,7 +223,7 @@ export const Page1_Scratch = () => {
                                 animationDelay: '4s' // Wait for drawing to finish
                             }}
                         >
-                            🔎 START INVESTIGATION
+                            🔎 VIEW SUSPECT PROFILE →
                         </button>
                     )}
                 </div>

@@ -103,7 +103,7 @@ export const EvidenceCard = ({ item, isCollected, onCollect }: EvidenceCardProps
                     )}
                 </div>
 
-                {/* Back (Description) */}
+                {/* Back (Evidence Log) */}
                 <div style={{
                     position: 'absolute',
                     width: '100%',
@@ -114,16 +114,20 @@ export const EvidenceCard = ({ item, isCollected, onCollect }: EvidenceCardProps
                     boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
                     display: 'flex',
                     flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
                     borderRadius: '8px',
                     padding: '10px',
                     transform: 'rotateY(180deg)',
-                    fontFamily: 'var(--font-handwritten)',
-                    fontSize: '1.2rem',
-                    color: 'var(--black)'
+                    fontFamily: 'var(--font-typewriter)',
+                    fontSize: '0.65rem',
+                    lineHeight: '1.4',
+                    color: 'var(--black)',
+                    overflow: 'auto',
+                    textAlign: 'left',
+                    whiteSpace: 'pre-line'
                 }}>
-                    <p>{item.description}</p>
+                    <p style={{ margin: 0 }}>{item.log}</p>
                 </div>
 
             </div>

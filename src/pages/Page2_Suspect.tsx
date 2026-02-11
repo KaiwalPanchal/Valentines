@@ -9,14 +9,10 @@ export const Page2_Suspect = () => {
     const { playSFX } = useAudio();
 
     useEffect(() => {
-        // Play paper shuffle on mount
         playSFX('paperShuffle');
-
-        // Play stamp sound after text types a bit
         const timer = setTimeout(() => {
-            playSFX('whoosh'); // Stamp impact sound replacement
+            playSFX('whoosh');
         }, 1500);
-
         return () => clearTimeout(timer);
     }, [playSFX]);
 
@@ -29,42 +25,56 @@ export const Page2_Suspect = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: 'var(--purple-deep)',
+                background: `url('/assets/textures/aged_paper_texture.jpg') center/cover`,
                 position: 'relative',
                 padding: '2rem'
             }}>
 
-                {/* Background Stamps/Texture */}
-                <div style={{
-                    position: 'absolute',
-                    top: '10%',
-                    right: '5%',
-                    transform: 'rotate(-15deg)',
-                    fontFamily: 'var(--font-typewriter)',
-                    fontSize: '4rem',
-                    color: 'rgba(255, 255, 255, 0.05)',
-                    pointerEvents: 'none'
-                }}>
-                    CONFIDENTIAL
-                </div>
+                {/* Background Stamps - actual images */}
+                <img
+                    src="/assets/stamps/confidential_stamp.png"
+                    alt=""
+                    style={{
+                        position: 'absolute',
+                        top: '8%',
+                        right: '3%',
+                        width: '200px',
+                        transform: 'rotate(-12deg)',
+                        opacity: 0.15,
+                        pointerEvents: 'none'
+                    }}
+                />
+                <img
+                    src="/assets/stamps/urgent_stamp.png"
+                    alt=""
+                    style={{
+                        position: 'absolute',
+                        bottom: '12%',
+                        left: '3%',
+                        width: '150px',
+                        transform: 'rotate(8deg)',
+                        opacity: 0.15,
+                        pointerEvents: 'none'
+                    }}
+                />
 
                 {/* Profile Card */}
                 <div style={{
                     background: 'var(--cream)',
                     color: 'var(--black)',
                     padding: '2rem',
-                    maxWidth: '500px',
+                    maxWidth: '550px',
                     width: '100%',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-                    transform: 'rotate(-2deg)',
+                    transform: 'rotate(-1deg)',
                     position: 'relative',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '1.5rem',
+                    gap: '1rem',
                     border: '1px solid var(--cream-dark)'
                 }}>
 
-                    {/* Paper Texture Overlay (simulated) */}
+                    {/* Paper Texture Overlay */}
                     <div style={{
                         position: 'absolute',
                         top: 0, left: 0, right: 0, bottom: 0,
@@ -81,37 +91,65 @@ export const Page2_Suspect = () => {
                         alignItems: 'flex-end'
                     }}>
                         <h2 style={{ fontFamily: 'var(--font-typewriter)', fontSize: '1.5rem', margin: 0 }}>
-                            SUSPECT PROFILE
+                            SUSPECT DOSSIER
                         </h2>
                         <span style={{ fontFamily: 'monospace', fontSize: '0.9rem' }}>#0214</span>
                     </div>
 
                     <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-                        {/* Photo Area */}
+                        {/* Photo Area with Polaroid Frame */}
                         <div style={{
-                            flex: '0 0 150px',
-                            height: '180px',
-                            background: '#ddd',
-                            border: '4px solid white',
-                            boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+                            flex: '0 0 140px',
+                            height: '170px',
                             position: 'relative',
                             transform: 'rotate(2deg)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            overflow: 'hidden'
                         }}>
-                            {/* Placeholder Content if no image */}
-                            <span style={{ fontSize: '3rem', opacity: 0.3 }}>?</span>
+                            {/* Polaroid frame overlay */}
+                            <img
+                                src="/assets/ui/polaroid_frame.png"
+                                alt=""
+                                style={{
+                                    position: 'absolute',
+                                    top: '-10px', left: '-10px',
+                                    width: '160px',
+                                    height: '190px',
+                                    objectFit: 'contain',
+                                    zIndex: 2,
+                                    pointerEvents: 'none'
+                                }}
+                            />
+                            {/* Actual suspect photo */}
+                            <img
+                                src="/assets/photos/suspect.jpg"
+                                alt="Suspect"
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    border: '4px solid white',
+                                    boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
+                                }}
+                            />
 
-                            {/* Real Image (commented out for user to enable) */}
-                            {/* <img src="/assets/photos/suspect.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> */}
+                            {/* Primary Suspect label */}
+                            <div style={{
+                                position: 'absolute',
+                                bottom: '8px',
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                fontFamily: 'var(--font-typewriter)',
+                                fontSize: '0.6rem',
+                                color: '#666',
+                                whiteSpace: 'nowrap'
+                            }}>
+                                PRIMARY SUSPECT
+                            </div>
 
                             {/* TARGET Stamp */}
                             <div style={{
                                 position: 'absolute',
-                                bottom: '10px',
-                                right: '-10px',
+                                top: '8px',
+                                right: '-8px',
                                 border: '3px solid var(--red-stamp)',
                                 color: 'var(--red-stamp)',
                                 padding: '2px 8px',
@@ -119,50 +157,74 @@ export const Page2_Suspect = () => {
                                 fontWeight: 'bold',
                                 transform: 'rotate(-15deg)',
                                 background: 'rgba(255,255,255,0.8)',
-                                fontSize: '0.9rem'
+                                fontSize: '0.8rem',
+                                zIndex: 3
                             }}>
                                 TARGET
                             </div>
                         </div>
 
                         {/* Details */}
-                        <div style={{ flex: 1, fontFamily: 'var(--font-typewriter)', fontSize: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                        <div style={{ flex: 1, fontFamily: 'var(--font-typewriter)', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                             <div>
-                                <strong>NAME:</strong> Disha
+                                <strong>NAME:</strong> [Suspect Name]
                             </div>
                             <div>
-                                <strong>ALIAS:</strong> "The Cutie"
+                                <strong>ALIAS:</strong> "The One Who Fell First"
                             </div>
-                            <div>
-                                <strong>CRIME:</strong> Grand Theft Heart
-                            </div>
-                            <div>
-                                <strong>LAST SEEN:</strong> Being adorable
-                            </div>
-                            <div style={{ marginTop: '0.5rem' }}>
-                                <strong>NOTES:</strong>
-                                <TypewriterText
-                                    text="Subject is extremely dangerous. One look may cause permanent heart loss."
-                                    speed={20}
-                                    className="text-sm mt-1 opacity-80"
-                                    delay={500}
-                                />
+                            <div style={{ marginTop: '0.3rem' }}>
+                                <strong>CHARGES:</strong>
+                                <ul style={{ margin: '0.3rem 0 0 1.2rem', padding: 0, fontSize: '0.85rem', lineHeight: '1.6' }}>
+                                    <li>Excessive smiling at phone notifications</li>
+                                    <li>Chronic daydreaming during work</li>
+                                    <li>Unauthorized butterflies in stomach</li>
+                                    <li>Criminal levels of wanting to spend time together</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                    {/* Big Stamp Animation */}
+                    {/* Last Known Locations */}
+                    <div style={{ fontFamily: 'var(--font-typewriter)', fontSize: '0.85rem', lineHeight: '1.6' }}>
+                        <strong>LAST KNOWN LOCATIONS:</strong>
+                        <div style={{ marginTop: '0.3rem', paddingLeft: '1rem', opacity: 0.8 }}>
+                            📍 The Riverfront (scene of first confession)<br />
+                            📍 The Temple (proposal legacy site)<br />
+                            📍 Takshashila Deck (comfort zone)<br />
+                            📍 Long-drive routes (mobile therapy)
+                        </div>
+                    </div>
+
+                    {/* Threat Level */}
+                    <div style={{ fontFamily: 'var(--font-typewriter)', fontSize: '0.9rem' }}>
+                        <strong>THREAT LEVEL:</strong>{' '}
+                        <span style={{ fontSize: '1.1rem', letterSpacing: '2px' }}>💜💜💜💜💜</span>
+                    </div>
+
+                    {/* Notes */}
+                    <div style={{ fontFamily: 'var(--font-typewriter)', fontSize: '0.85rem', marginTop: '0.3rem' }}>
+                        <strong>OFFICER'S NOTE:</strong>
+                        <div style={{ marginTop: '0.3rem' }}>
+                            <TypewriterText
+                                text="Subject is extremely dangerous. One look may cause permanent heart loss. Approach with caution (and maybe flowers)."
+                                speed={20}
+                                delay={500}
+                            />
+                        </div>
+                    </div>
+
+                    {/* WANTED Stamp Animation */}
                     <div style={{
                         position: 'absolute',
                         top: '40%',
-                        left: '30%',
+                        left: '35%',
                         transform: 'translate(-50%, -50%) rotate(-15deg) scale(3)',
                         opacity: 0,
                         border: '5px solid var(--red-stamp)',
                         color: 'var(--red-stamp)',
-                        padding: '1rem',
+                        padding: '0.8rem',
                         fontFamily: 'var(--font-typewriter)',
-                        fontSize: '4rem',
+                        fontSize: '3.5rem',
                         fontWeight: 'bold',
                         borderRadius: '10px',
                         textTransform: 'uppercase',
@@ -187,21 +249,23 @@ export const Page2_Suspect = () => {
                 <button
                     onClick={() => goToPage(3)}
                     style={{
-                        marginTop: '3rem',
+                        marginTop: '2.5rem',
                         padding: '1rem 3rem',
-                        fontSize: '1.2rem',
+                        fontSize: '1.1rem',
                         fontFamily: 'var(--font-display)',
                         background: 'var(--purple-mid)',
                         color: 'var(--white)',
                         borderRadius: '8px',
                         boxShadow: '0 4px 15px rgba(107, 63, 160, 0.4)',
                         transition: 'transform 0.2s',
-                        animation: 'fadeIn 0.5s ease-out 3s backwards'
+                        animation: 'fadeIn 0.5s ease-out 3s backwards',
+                        border: 'none',
+                        cursor: 'pointer'
                     }}
                     onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
                     onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                 >
-                    📂 REVIEW EVIDENCE
+                    📋 EXAMINE COLLECTED EVIDENCE →
                 </button>
 
             </div>

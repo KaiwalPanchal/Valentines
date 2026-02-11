@@ -16,28 +16,37 @@ export const Page4_Quiz = () => {
 
     const question = quizData[currentQ];
 
+    const [isCorrectFeedback, setIsCorrectFeedback] = useState(false);
+
     const handleAnswer = (index: number) => {
         if (feedback) return; // Prevent spam
 
         if (index === question.correctAnswer) {
             // Correct
             playSFX('chime');
-            setFeedback(question.successMessage);
+            setFeedback(question.correctResponse);
+            setIsCorrectFeedback(true);
 
             setTimeout(() => {
                 if (currentQ < quizData.length - 1) {
                     setFeedback(null);
+                    setIsCorrectFeedback(false);
                     setCurrentQ(curr => curr + 1);
                 } else {
                     // Finished
                     finishQuiz();
                 }
-            }, 2000);
+            }, 3000);
         } else {
             // Wrong
             playSFX('buzz');
             setIsShaking(true);
-            setTimeout(() => setIsShaking(false), 500);
+            setFeedback(question.wrongResponse);
+            setIsCorrectFeedback(false);
+            setTimeout(() => {
+                setIsShaking(false);
+                setFeedback(null);
+            }, 2000);
         }
     };
 
@@ -150,11 +159,13 @@ export const Page4_Quiz = () => {
                         {feedback && (
                             <div style={{
                                 textAlign: 'center',
-
                                 fontFamily: 'var(--font-typewriter)',
                                 fontWeight: 'bold',
-                                color: '#22cc22',
-                                animation: 'fadeIn 0.3s'
+                                color: isCorrectFeedback ? '#22cc22' : 'var(--red-stamp)',
+                                animation: 'fadeIn 0.3s',
+                                whiteSpace: 'pre-line',
+                                fontSize: '0.9rem',
+                                lineHeight: '1.6'
                             }}>
                                 {feedback}
                             </div>
@@ -176,21 +187,25 @@ export const Page4_Quiz = () => {
                     }}>
                         <h1 style={{
                             fontFamily: 'var(--font-display)',
-                            fontSize: '4rem',
+                            fontSize: '3.5rem',
                             color: 'var(--red-stamp)',
                             textShadow: '0 0 20px var(--red-stamp)',
                             animation: 'stampSlam 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
                         }}>
-                            CONFESSION OBTAINED
+                            INTERROGATION COMPLETE
                         </h1>
                         <p style={{
-                            marginTop: '1rem',
+                            marginTop: '1.5rem',
                             fontFamily: 'var(--font-typewriter)',
-                            fontSize: '1.2rem',
+                            fontSize: '1.1rem',
                             color: 'var(--white)',
-                            opacity: 0.8
+                            opacity: 0.8,
+                            textAlign: 'center',
+                            maxWidth: '500px',
+                            whiteSpace: 'pre-line',
+                            lineHeight: '1.8'
                         }}>
-                            Proceeding to crime scene analysis...
+                            {"The suspect has confessed to all charges.\n\nHowever, one final piece of evidence remains:\nA collection of moments that built this case."}
                         </p>
                     </div>
                 )}

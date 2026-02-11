@@ -36,8 +36,7 @@ export const Page3_Evidence = () => {
             <div style={{
                 width: '100%',
                 height: '100%',
-                background: 'var(--purple-deep)',
-                backgroundImage: 'radial-gradient(circle at center, #2d1b4e 0%, #1a0a2e 100%)',
+                background: `url('/assets/textures/corkboard_texture.jpg') center/cover`,
                 position: 'relative',
                 overflow: 'hidden'
             }}>
