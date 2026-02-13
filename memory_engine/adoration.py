@@ -139,9 +139,10 @@ def cluster_adorations(adorations: list[dict], output_dir: str,
     # Group by cluster
     themes = {}
     for i, label in enumerate(labels):
+        label = int(label)
         if label not in themes:
             themes[label] = {
-                "theme_id": label,
+                "theme_id": int(label),
                 "messages": [],
                 "perspectives": [],
             }
@@ -161,8 +162,8 @@ def cluster_adorations(adorations: list[dict], output_dir: str,
         dominant_perspective = perspective_counts.most_common(1)[0][0]
 
         theme_list.append({
-            "theme_id": tid,
-            "size": len(theme["messages"]),
+            "theme_id": int(tid),
+            "size": int(len(theme["messages"])),
             "dominant_perspective": dominant_perspective,
             "perspective_breakdown": dict(perspective_counts),
             "sample_messages": [m["content"] for m in theme["messages"][:5]],

@@ -1,16 +1,17 @@
 """
-Step 7: Moment Summarization via Groq LLM
-Uses gpt-oss-20b for bulk cluster summarization (fast, cheap) and
+Step 8: Moment Summarization via Groq LLM
+Uses gpt-oss-20b for bulk moment summarization (fast, cheap) and
 gpt-oss-120b for adoration theme naming (higher quality, fewer calls).
 
-Token Budget:
-- gpt-oss-20b: 1000 requests, 200k output tokens → used for cluster summaries (~50-80 clusters)
-- gpt-oss-120b: 1000 requests, 200k output tokens → used for adoration themes (~10-15 themes)
+Token Budget Optimization:
+- 258 moments × ~150 output tokens = ~39k output tokens ← fits easily
+- But 258 requests is a lot. We summarize top 100 by emotional weight.
+- Adoration themes: ~3 requests (batched 5 at a time) ← negligible
+- Total: ~103 requests out of 1000 budget, ~16k output tokens out of 200k
 """
 import json
 import os
 import time
-from datetime import datetime, timezone
 
 
 def get_groq_client():
@@ -25,35 +26,33 @@ def get_groq_client():
     return Groq(api_key=api_key)
 
 
-def summarize_cluster(client, cluster: dict, model: str = "openai/gpt-oss-20b") -> dict:
+def summarize_moment(client, moment: dict, model: str = "openai/gpt-oss-20b") -> dict:
     """
-    Summarize a single cluster into a short moment description.
-    Uses only the top 3 representative texts to stay tokens-efficient.
+    Summarize a single moment into a short memory description.
+    Uses top 3 representative texts, truncated to save input tokens.
     """
-    # Take top 3 representative chunks (closest to centroid, already sorted)
-    rep_texts = cluster.get("representative_texts", [])[:3]
+    rep_texts = moment.get("representative_texts", [])[:3]
 
-    # Truncate each text to ~500 chars to save input tokens
+    # Truncate each text to ~400 chars
     truncated = []
     for t in rep_texts:
         lines = t.split("\n")
-        # Keep header (tone line) + actual message lines, skip "---" separator
         meaningful = [l for l in lines if l.strip() and l.strip() != "---"]
-        truncated.append("\n".join(meaningful[:15]))  # Max 15 lines per text
+        truncated.append("\n".join(meaningful[:12]))
 
     combined = "\n\n---\n\n".join(truncated)
 
     prompt = f"""These are chat excerpts from a conversation between Kaiwal and Disha (a young couple).
-They speak in English, Gujarati, and Hindi mixed. This cluster has {cluster['size']} similar conversation windows.
-Dominant tone: {cluster['dominant_tone']}.
+They speak in English, Gujarati, and Hindi mixed. Date: {moment.get('date', 'unknown')}.
+Dominant tone: {moment['dominant_tone']}. This conversation had {moment.get('total_reactions', 0)} reactions.
 
 Messages:
 {combined}
 
 Summarize this as ONE short "moment" description (1-2 sentences max).
-What is the ESSENCE of these conversations? What memory or emotional thread connects them?
+What is the ESSENCE of this conversation? What memory does it capture?
 Do NOT invent details. Keep it authentic. Be specific, not generic.
-Also provide a 3-5 word label for this moment theme.
+Also provide a 3-5 word label for this moment.
 
 Reply in this exact format:
 LABEL: <3-5 word theme label>
@@ -63,35 +62,34 @@ MOMENT: <1-2 sentence summary>"""
         response = client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=150,  # Keep output tokens low
+            max_tokens=150,
             temperature=0.7,
         )
         text = response.choices[0].message.content.strip()
 
         # Parse response
         label = ""
-        moment = ""
+        moment_text = ""
         for line in text.split("\n"):
             line = line.strip()
             if line.upper().startswith("LABEL:"):
                 label = line[6:].strip()
             elif line.upper().startswith("MOMENT:"):
-                moment = line[7:].strip()
+                moment_text = line[7:].strip()
 
-        if not label and not moment:
-            # Fallback: use entire response as moment
-            moment = text[:200]
-            label = f"Cluster {cluster['cluster_id']}"
+        if not label and not moment_text:
+            moment_text = text[:200]
+            label = f"Moment {moment['moment_id']}"
 
         return {
-            "cluster_id": cluster["cluster_id"],
+            "moment_id": moment["moment_id"],
+            "date": moment.get("date", ""),
             "label": label,
-            "moment": moment,
-            "size": cluster["size"],
-            "dominant_tone": cluster["dominant_tone"],
-            "total_reactions": cluster.get("total_reactions", 0),
-            "time_start": cluster.get("time_start", 0),
-            "time_end": cluster.get("time_end", 0),
+            "summary": moment_text,
+            "dominant_tone": moment["dominant_tone"],
+            "emotional_weight": moment.get("emotional_weight", 0),
+            "total_reactions": moment.get("total_reactions", 0),
+            "n_chunks": moment.get("n_chunks", 0),
         }
 
     except Exception as e:
@@ -99,15 +97,16 @@ MOMENT: <1-2 sentence summary>"""
         if "rate_limit" in error_str.lower() or "429" in error_str:
             print(f"  Rate limited, waiting 30s...")
             time.sleep(30)
-            return summarize_cluster(client, cluster, model)  # Retry
+            return summarize_moment(client, moment, model)
         else:
-            print(f"  Error on cluster {cluster['cluster_id']}: {e}")
+            print(f"  Error on moment {moment['moment_id']}: {e}")
             return {
-                "cluster_id": cluster["cluster_id"],
-                "label": f"Cluster {cluster['cluster_id']}",
-                "moment": f"[Error: {str(e)[:100]}]",
-                "size": cluster["size"],
-                "dominant_tone": cluster["dominant_tone"],
+                "moment_id": moment["moment_id"],
+                "date": moment.get("date", ""),
+                "label": f"Moment {moment['moment_id']}",
+                "summary": f"[Error: {str(e)[:100]}]",
+                "dominant_tone": moment["dominant_tone"],
+                "emotional_weight": moment.get("emotional_weight", 0),
             }
 
 
@@ -117,14 +116,13 @@ def name_adoration_themes(client, themes: list[dict],
     Use the 120b model to name adoration themes with higher quality.
     Batches multiple themes per request to save on request count.
     """
-    # Batch themes in groups of 5 to save requests
+    import re as re_module
     batch_size = 5
     named_themes = []
 
     for i in range(0, len(themes), batch_size):
         batch = themes[i:i + batch_size]
 
-        # Format batch
         theme_texts = []
         for j, theme in enumerate(batch):
             samples = theme.get("sample_messages", [])[:3]
@@ -159,14 +157,11 @@ THEME 2: <name> | <poetic line>
             )
             text = response.choices[0].message.content.strip()
 
-            # Parse response
             for line in text.split("\n"):
                 line = line.strip()
                 if not line:
                     continue
-                # Match "THEME N: name | poetic" pattern
-                import re
-                match = re.match(r"THEME\s+(\d+):\s*(.+?)\s*\|\s*(.+)", line, re.IGNORECASE)
+                match = re_module.match(r"THEME\s+(\d+):\s*(.+?)\s*\|\s*(.+)", line, re_module.IGNORECASE)
                 if match:
                     idx = int(match.group(1)) - 1
                     if 0 <= idx < len(batch):
@@ -174,13 +169,12 @@ THEME 2: <name> | <poetic line>
                         batch[idx]["poetic_line"] = match.group(3).strip()
 
             named_themes.extend(batch)
-            time.sleep(1)  # Be nice to rate limits
+            time.sleep(1)
 
         except Exception as e:
             if "rate_limit" in str(e).lower() or "429" in str(e):
                 print(f"  Rate limited, waiting 30s...")
                 time.sleep(30)
-                # Retry this batch
                 named_themes.extend(name_adoration_themes(client, batch, model))
             else:
                 print(f"  Error naming themes: {e}")
@@ -189,29 +183,48 @@ THEME 2: <name> | <poetic line>
     return named_themes
 
 
-def run(output_dir: str):
+def run(output_dir: str, max_moments: int = 100):
+    """
+    Summarize top moments by emotional weight.
+    
+    Args:
+        max_moments: Max moments to summarize (default 100, stays within budget)
+    """
     client = get_groq_client()
 
-    # --- Summarize clusters ---
-    clusters_path = os.path.join(output_dir, "05_clusters.json")
-    with open(clusters_path, 'r', encoding='utf-8') as f:
-        clusters = json.load(f)
+    # --- Summarize moments ---
+    moments_path = os.path.join(output_dir, "05_moments.json")
+    with open(moments_path, 'r', encoding='utf-8') as f:
+        moments = json.load(f)
 
-    print(f"  Summarizing {len(clusters)} clusters with gpt-oss-20b...")
-    print(f"  Estimated cost: {len(clusters)} requests, ~{len(clusters) * 150} output tokens")
+    # Already sorted by emotional weight (descending) from step 5
+    top_moments = moments[:max_moments]
+
+    print(f"  Summarizing top {len(top_moments)}/{len(moments)} moments with gpt-oss-20b...")
+    print(f"  Estimated: {len(top_moments)} requests, ~{len(top_moments) * 150} output tokens")
 
     summaries = []
-    for i, cluster in enumerate(clusters):
-        print(f"  [{i+1}/{len(clusters)}] Cluster {cluster['cluster_id']} ({cluster['size']} chunks)...", end=" ")
-        summary = summarize_cluster(client, cluster)
+    # Progressive save — save after every 10 to avoid losing progress
+    save_path = os.path.join(output_dir, "07_summaries.json")
+
+    for i, moment in enumerate(top_moments):
+        print(f"  [{i+1}/{len(top_moments)}] Moment #{moment['moment_id']} ({moment.get('date', '?')})...", end=" ")
+        summary = summarize_moment(client, moment)
         summaries.append(summary)
         print(f"→ {summary['label']}")
-        time.sleep(0.5)  # Gentle rate limiting
 
-    summaries_path = os.path.join(output_dir, "07_summaries.json")
-    with open(summaries_path, 'w', encoding='utf-8') as f:
+        # Progressive save every 10
+        if (i + 1) % 10 == 0:
+            with open(save_path, 'w', encoding='utf-8') as f:
+                json.dump(summaries, f, ensure_ascii=False, indent=2)
+            print(f"  [saved {len(summaries)} summaries]")
+
+        time.sleep(0.3)  # Gentle rate limiting
+
+    # Final save
+    with open(save_path, 'w', encoding='utf-8') as f:
         json.dump(summaries, f, ensure_ascii=False, indent=2)
-    print(f"✓ Summaries: {len(summaries)} → {summaries_path}")
+    print(f"✓ Summaries: {len(summaries)} → {save_path}")
 
     # --- Name adoration themes ---
     adorations_path = os.path.join(output_dir, "06_adorations.json")
@@ -222,7 +235,7 @@ def run(output_dir: str):
         if themes:
             print(f"\n  Naming {len(themes)} adoration themes with gpt-oss-120b...")
             n_requests = (len(themes) + 4) // 5
-            print(f"  Estimated cost: {n_requests} requests, ~{n_requests * 300} output tokens")
+            print(f"  Estimated: {n_requests} requests, ~{n_requests * 300} output tokens")
 
             named_themes = name_adoration_themes(client, themes)
 
@@ -235,6 +248,11 @@ def run(output_dir: str):
                 name = t.get("theme_name", "?")
                 poetic = t.get("poetic_line", "?")
                 print(f"  • {name}: {poetic}")
+
+    # --- Print budget usage ---
+    total_requests = len(top_moments) + ((len(themes) + 4) // 5 if themes else 0)
+    total_output_tokens_est = len(top_moments) * 150 + ((len(themes) + 4) // 5) * 300
+    print(f"\n  Budget usage: ~{total_requests}/1000 requests, ~{total_output_tokens_est}/200k output tokens")
 
     return summaries
 
