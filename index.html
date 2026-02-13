@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case #0214: The Stolen Heart</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Permanent+Marker&family=Special+Elite&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Concentric Hearts Background -->
+    <svg class="hearts-bg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <!-- Heart shape path (points upward from origin, tip at bottom) -->
+            <path id="heart"
+                d="M0,-17.5 C-5,-30 -25,-30 -25,-17.5 C-25,-5 0,10 0,25 C0,10 25,-5 25,-17.5 C25,-30 5,-30 0,-17.5 Z" />
+        </defs>
+        <!-- Center = 500, 700 (200px below true center) -->
+        <!-- 3 colors alternating: darkest #8B0000, medium #CD5C5C, light #E8A0A0 -->
+        <g transform="translate(500, 600)">
+            <use href="#heart" transform="scale(40)" fill="#8B0000" /> <!-- darkest -->
+            <use href="#heart" transform="scale(36)" fill="#CD5C5C" /> <!-- medium -->
+            <use href="#heart" transform="scale(32)" fill="#E8A0A0" /> <!-- light -->
+            <use href="#heart" transform="scale(28)" fill="#8B0000" /> <!-- darkest -->
+            <use href="#heart" transform="scale(24)" fill="#CD5C5C" /> <!-- medium -->
+            <use href="#heart" transform="scale(20)" fill="#E8A0A0" /> <!-- light -->
+            <use href="#heart" transform="scale(16)" fill="#8B0000" /> <!-- darkest -->
+            <use href="#heart" transform="scale(12)" fill="#CD5C5C" /> <!-- medium -->
+            <use href="#heart" transform="scale(8)" fill="#E8A0A0" /> <!-- light -->
+            <use href="#heart" transform="scale(5)" fill="#8B0000" /> <!-- darkest -->
+            <use href="#heart" transform="scale(3)" fill="#CD5C5C" /> <!-- medium -->
+            <use href="#heart" transform="scale(1.5)" fill="#E8A0A0" /> <!-- light -->
+        </g>
+    </svg>
+
+    <div class="desk-container">
+
+        <!-- Decoration -->
+        <div class="desk-item coffee-stain"></div>
+        <div class="desk-item pen"></div>
+
+        <div class="document-stack" id="stack">
+
+            <!-- REVERSE ORDER in HTML so the last one is on top visually via stacking context, 
+                 OR we use z-index. Let's use z-index in CSS and keep logical order here. 
+                 Actually, simpler to put the TOP card last in HTML for default stacking, 
+                 but for a "stack" conceptual model, usually the first item is bottom.
+                 Let's go with: Item 1 = Bottom, Item Last = Top. 
+            -->
+
+            <!-- Page 6: Final Message (Bottom) -->
+            <div class="paper-doc" id="doc-6" style="--rotation: -2deg;">
+                <div class="paper-content">
+                    <div class="stamp-approved">CASE CLOSED</div>
+                    <h1 class="ransom-title">H A P P Y &nbsp; V A L E N T I N E S</h1>
+                    <div class="body-text">
+                        <p>To my partner in crime,</p>
+                        <p>Investigation concluded. You are hereby sentenced to a lifetime of hugs, kisses, and bad
+                            jokes.</p>
+                        <p>I love you more than all the stars in the sky.</p>
+                    </div>
+                    <div class="heart-doodle">❤</div>
+                    <div class="signature">Forever yours,<br>Detective [Name]</div>
+                </div>
+            </div>
+
+            <!-- Page 5: Plea Form -->
+            <div class="paper-doc" id="doc-5" style="--rotation: 1deg;">
+                <div class="paper-content">
+                    <h2 class="typewriter-header">OFFICIAL PLEA FORM</h2>
+                    <p>Case No. 0214</p>
+                    <hr>
+                    <p>The visual evidence is overwhelming. How does the defendant plead to the charge of being
+                        criminally cute?</p>
+
+                    <div class="plea-options">
+                        <div class="checkbox-group">
+                            <div class="box checked">X</div>
+                            <span class="handwritten">Guilty as charged</span>
+                        </div>
+                        <div class="checkbox-group">
+                            <div class="box"></div>
+                            <span>Not Guilty (Lying)</span>
+                        </div>
+                    </div>
+
+                    <div class="polaroid" style="bottom: 50px; right: 30px; transform: rotate(-5deg);">
+                        <!-- PHOTO: Us -->
+                        <div class="photo-placeholder"
+                            style="background-image: url('assets/images/photo-us.jpg'); background-color: #ffcccc;">
+                        </div>
+                        <div class="caption">Us?</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 4: The Verdict -->
+            <div class="paper-doc" id="doc-4" style="--rotation: -1.5deg;">
+                <div class="paper-content">
+                    <div class="verdict-container">
+                        <h1 class="big-guilty">G U I L T Y</h1>
+                        <p class="typewriter-text center">OF STEALING MY HEART</p>
+                    </div>
+                    <div class="stamp-date">FEB 14 2026</div>
+                </div>
+            </div>
+
+            <!-- Page 3: Evidence (Photos) -->
+            <div class="paper-doc" id="doc-3" style="--rotation: 2deg;">
+                <div class="paper-content">
+                    <div class="stamp-evidence">EVIDENCE #001</div>
+                    <h2 class="ransom-subtitle">EXHIBIT A</h2>
+
+                    <div class="polaroid-scatter">
+                        <div class="polaroid" style="transform: rotate(-10deg); top: 100px; left: 20px;">
+                            <!-- PHOTO: Evidence 1 -->
+                            <div class="photo-placeholder"
+                                style="background-image: url('assets/images/photo-evidence-1.jpg');"></div>
+                            <div class="caption">Cute smile</div>
+                        </div>
+                        <div class="polaroid" style="transform: rotate(5deg); top: 150px; right: 20px;">
+                            <!-- PHOTO: Evidence 2 -->
+                            <div class="photo-placeholder"
+                                style="background-image: url('assets/images/photo-evidence-2.jpg');"></div>
+                            <div class="caption">The crime scene</div>
+                        </div>
+                    </div>
+
+                    <div class="note-sticky">
+                        Look at this face! <br> Clearly 100% guilty.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2: The Charges -->
+            <div class="paper-doc" id="doc-2" style="--rotation: -3deg;">
+                <div class="paper-content">
+                    <h2 class="typewriter-header">CHARGES SHEET</h2>
+                    <ul class="charges-list">
+                        <li>
+                            <span class="bullet">♥</span>
+                            <span class="charge-text">First Degree Theft of Heart</span>
+                        </li>
+                        <li>
+                            <span class="bullet">♥</span>
+                            <span class="charge-text">Reckless Driving (You drive me crazy)</span>
+                        </li>
+                        <li>
+                            <span class="bullet">♥</span>
+                            <span class="charge-text">Possession of Illegal Levels of Cuteness</span>
+                        </li>
+                    </ul>
+                    <div class="stamp-urgent">URGENT</div>
+                </div>
+            </div>
+
+            <!-- Page 1: Cover (Top) -->
+            <div class="paper-doc active" id="doc-1" style="--rotation: 0deg;">
+                <div class="paper-content">
+                    <div class="top-secret-stamp">TOP SECRET</div>
+                    <div class="case-file-header">
+                        <span>CASE FILE NO.</span>
+                        <span class="handwritten">0214-LOVE</span>
+                    </div>
+
+                    <div class="main-title">
+                        <span class="cutout-letter bg-purple">C</span>
+                        <span class="cutout-letter bg-red">O</span>
+                        <span class="cutout-letter bg-pink">N</span>
+                        <span class="cutout-letter bg-purple">F</span>
+                        <span class="cutout-letter bg-red">I</span>
+                        <span class="cutout-letter bg-pink">D</span>
+                        <span class="cutout-letter bg-purple">E</span>
+                        <span class="cutout-letter bg-red">N</span>
+                        <span class="cutout-letter bg-pink">T</span>
+                        <span class="cutout-letter bg-purple">I</span>
+                        <span class="cutout-letter bg-red">A</span>
+                        <span class="cutout-letter bg-pink">L</span>
+                    </div>
+
+                    <div class="target-info">
+                        <p><strong>SUBJECT:</strong> <span class="handwritten type-lg">[Partner's Name]</span></p>
+                        <p><strong>STATUS:</strong> <span class="handwritten" style="color: red;">WANTED FOR LOVE</span>
+                        </p>
+                    </div>
+
+                    <div class="paper-clip"></div>
+                    <div class="sticky-note-cover">
+                        <p class="handwritten">Open immediately!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button id="next-btn" class="nav-btn">Review Next Document</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
