@@ -4,10 +4,12 @@ I've updated the code to look for specific files in the `assets` folder. Save yo
 
 ## 1. Textures (Backgrounds)
 **Location:** `assets/textures/`
+*Note: The main background is now the "Heart Tunnel" (CSS/SVG). You don't need a desk background image anymore!*
 
 | File Name | Purpose | Recommended Style |
 | :--- | :--- | :--- |
-| `desk-bg.jpg` | Main background behind the stack | Dark wood, marble, or a cute patterned tablecloth |
+| `folder-texture.jpg` | Texture for the 3D Folder | Purple leather, cardstock, or fabric |
+| `sticky-note.png` | Background for sticky notes | A yellow/pink post-it note image (transparent bg preferred) |
 | `paper-texture.png` | The background for the documents | Crumbled paper, parchment, or subtle noise (transparent or light cream) |
 | `polaroid-texture.png` | Optional overlay for photos | Dust/scratches or a glossy paper effect |
 
