@@ -150,8 +150,7 @@ export const Page1_Scratch = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center',
-                background: 'var(--purple-deep)',
+                // background: 'var(--purple-deep)', // Removed for global theme
                 position: 'relative',
                 overflow: 'hidden'
             }}>

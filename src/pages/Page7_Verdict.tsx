@@ -33,9 +33,9 @@ export const Page7_Verdict = () => {
             <div style={{
                 width: '100%',
                 height: '100%',
-                background: phase >= 6
-                    ? `url('/assets/textures/purple_nightsky.jpg') center/cover`
-                    : 'linear-gradient(135deg, #2a1a0a 0%, #1a0a2e 50%, #0a0015 100%)',
+                // background: phase >= 6
+                //     ? `url('/assets/textures/purple_nightsky.jpg') center/cover`
+                //     : 'linear-gradient(135deg, #2a1a0a 0%, #1a0a2e 50%, #0a0015 100%)', // Removed for global theme
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -66,7 +66,7 @@ export const Page7_Verdict = () => {
                         <div style={{
                             fontFamily: 'var(--font-typewriter)',
                             fontSize: '0.9rem',
-                            color: 'var(--purple-light)',
+                            color: 'var(--purple-mid)',
                             letterSpacing: '3px',
                             marginBottom: '1rem',
                             opacity: 0,
@@ -80,7 +80,7 @@ export const Page7_Verdict = () => {
                         <div style={{
                             fontFamily: 'var(--font-typewriter)',
                             fontSize: '0.8rem',
-                            color: 'var(--cream)',
+                            color: 'var(--text-secondary)',
                             opacity: 0.6,
                             marginBottom: '2rem'
                         }}>
@@ -93,7 +93,7 @@ export const Page7_Verdict = () => {
                         <div style={{
                             fontFamily: 'var(--font-typewriter)',
                             fontSize: '1rem',
-                            color: 'var(--cream)',
+                            color: 'var(--text-main)',
                             lineHeight: '2',
                             marginBottom: '2rem',
                             opacity: 0,
@@ -112,7 +112,7 @@ export const Page7_Verdict = () => {
                         <div style={{
                             fontFamily: 'var(--font-typewriter)',
                             fontSize: '1rem',
-                            color: 'var(--cream)',
+                            color: 'var(--text-main)',
                             marginBottom: '0.5rem'
                         }}>
                             The court finds:
@@ -139,7 +139,7 @@ export const Page7_Verdict = () => {
                         <div style={{
                             fontFamily: 'var(--font-typewriter)',
                             fontSize: '0.9rem',
-                            color: 'var(--cream)',
+                            color: 'var(--white)', // Keep white as it's on dark bg
                             lineHeight: '1.8',
                             textAlign: 'left',
                             marginBottom: '2rem',
@@ -160,7 +160,7 @@ export const Page7_Verdict = () => {
                         <div style={{
                             fontFamily: 'var(--font-typewriter)',
                             fontSize: '0.9rem',
-                            color: 'var(--purple-light)',
+                            color: 'var(--text-main)',
                             lineHeight: '1.9',
                             marginBottom: '2rem',
                             fontStyle: 'italic',
@@ -177,7 +177,7 @@ export const Page7_Verdict = () => {
                         <div style={{
                             fontFamily: 'var(--font-typewriter)',
                             fontSize: '1rem',
-                            color: 'var(--white)',
+                            color: 'var(--text-main)',
                             lineHeight: '2',
                             marginBottom: '2rem',
                             opacity: 0,

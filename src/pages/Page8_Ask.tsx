@@ -61,7 +61,7 @@ export const Page8_Ask = () => {
             <div style={{
                 width: '100%',
                 height: '100%',
-                background: `url('/assets/textures/purple_nightsky.jpg') center/cover`,
+                // background: `url('/assets/textures/purple_nightsky.jpg') center/cover`, // Removed for global theme
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -117,7 +117,7 @@ export const Page8_Ask = () => {
                         <div style={{
                             fontFamily: 'var(--font-display)',
                             fontSize: '2.5rem',
-                            color: 'var(--white)',
+                            color: 'var(--text-main)',
                             marginBottom: '2rem',
                             opacity: 0,
                             animation: 'fadeIn 1.5s forwards'
@@ -131,7 +131,7 @@ export const Page8_Ask = () => {
                         <div style={{
                             fontFamily: 'var(--font-typewriter)',
                             fontSize: '1rem',
-                            color: 'var(--cream)',
+                            color: 'var(--text-secondary)',
                             lineHeight: '2',
                             marginBottom: '1.5rem',
                             opacity: 0,
@@ -147,7 +147,7 @@ export const Page8_Ask = () => {
                         <div style={{
                             fontFamily: 'var(--font-typewriter)',
                             fontSize: '1.1rem',
-                            color: 'var(--purple-light)',
+                            color: 'var(--purple-mid)',
                             marginBottom: '2rem',
                             opacity: 0,
                             animation: 'fadeIn 1.5s forwards'
@@ -161,7 +161,7 @@ export const Page8_Ask = () => {
                         <div style={{
                             fontFamily: 'var(--font-display)',
                             fontSize: '3rem',
-                            color: 'var(--white)',
+                            color: 'var(--text-main)',
                             marginBottom: '2rem',
                             textShadow: '0 5px 30px rgba(107, 63, 160, 0.8)',
                             opacity: 0,
@@ -176,7 +176,7 @@ export const Page8_Ask = () => {
                         <div style={{
                             fontFamily: 'var(--font-typewriter)',
                             fontSize: '0.95rem',
-                            color: 'var(--cream)',
+                            color: 'var(--text-secondary)',
                             lineHeight: '1.8',
                             marginBottom: '2.5rem',
                             opacity: 0,

@@ -27,9 +27,8 @@ export const Page0_Loading = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center',
-                background: 'linear-gradient(135deg, var(--purple-deep), var(--purple-dark))',
-                color: 'var(--purple-light)',
+                // background: 'linear-gradient(135deg, var(--purple-deep), var(--purple-dark))', // Removed for global theme
+                color: 'var(--text-main)',
                 textAlign: 'center',
                 position: 'relative',
                 overflow: 'hidden'

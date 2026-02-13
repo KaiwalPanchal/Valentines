@@ -25,7 +25,7 @@ export const Page2_Suspect = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: `url('/assets/textures/aged_paper_texture.jpg') center/cover`,
+                // background: `url('/assets/textures/aged_paper_texture.jpg') center/cover`, // Removed for global theme
                 position: 'relative',
                 padding: '2rem'
             }}>

@@ -63,7 +63,7 @@ export const Page4_Quiz = () => {
             <div style={{
                 width: '100%',
                 height: '100%',
-                background: 'var(--purple-deep)',
+                // background: 'var(--purple-deep)', // Removed for global theme
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -211,6 +211,6 @@ export const Page4_Quiz = () => {
                 )}
 
             </div>
-        </PageTransition>
+        </PageTransition >
     );
 };

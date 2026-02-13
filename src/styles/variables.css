@@ -1,28 +1,40 @@
 :root {
-  /* === Colors (from blueprint) === */
-  --purple-deep:    #1a0a2e;    /* Page 0-1 backgrounds */
-  --purple-dark:    #2d1b4e;    /* Page 1 darker variant */
-  --purple-mid:     #6b3fa0;    /* Accents, hearts */
-  --purple-soft:    #9b72cf;    /* Soft glow, puzzle bg */
-  --purple-light:   #d4b8ff;    /* Text highlights */
-  --cream:          #f5e6d0;    /* Paper texture tint */
-  --cream-dark:     #d4c4a8;    /* File folder tabs */
-  --cork:           #c08b5c;    /* Cork board tint (fallback if no image) */
-  --red-stamp:      #cc2222;    /* CONFIDENTIAL, URGENT */
-  --gold:           #d4a843;    /* Courtroom warmth */
-  --silver:         #c0c0c0;    /* Scratch surface */
-  --white:          #fafafa;
-  --black:          #0a0a0a;
-  --spotlight:      rgba(255, 255, 200, 0.08); /* Interrogation room */
+  /* === Colors (Heart Theme) === */
+  --bg-pattern: url('/assets/textures/heart_pattern.png');
+  --purple-deep: #fdf6e3;
+  /* Main Background (Cream) */
+  --purple-dark: #fbe4e4;
+  /* Secondary Background (Light Pink) */
+  --purple-mid: #d63384;
+  /* Accents (Hot Pink) */
+  --purple-soft: #eebbce;
+  /* Soft pink glow */
+  --purple-light: #8a2be2;
+  /* Text highlights (Deep Purple for contrast) */
+
+  --text-main: #4a0e4e;
+  /* Deep purple text for readability on cream */
+  --text-secondary: #5d4037;
+  /* Brownish grey for secondary text */
+
+  --cream: #fff0f5;
+  /* Lavender blush */
+  --cream-dark: #e6e6fa;
+  /* Lavender */
+
+  --white: #ffffff;
+  --black: #2c003e;
+  --spotlight: rgba(255, 105, 180, 0.1);
+  /* Pink spotlight */
 
   /* === Fonts === */
-  --font-display:    'Playfair Display', serif;
+  --font-display: 'Playfair Display', serif;
   --font-typewriter: 'Special Elite', monospace;
-  --font-handwritten:'Dancing Script', cursive;
-  --font-body:       'Inter', sans-serif;
+  --font-handwritten: 'Dancing Script', cursive;
+  --font-body: 'Inter', sans-serif;
 
   /* === Timing === */
-  --transition-page:  0.6s ease-in-out;
+  --transition-page: 0.6s ease-in-out;
   --typewriter-speed: 50ms;
-  --bounce-duration:  0.4s;
+  --bounce-duration: 0.4s;
 }

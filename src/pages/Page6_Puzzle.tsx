@@ -56,14 +56,14 @@ const DropZone = ({ id, isFilled, children }: { id: string, isFilled: boolean, c
             style={{
                 width: '102px',
                 height: '102px',
-                border: isFilled ? 'none' : '2px dashed rgba(255,255,255,0.3)',
+                border: isFilled ? 'none' : '2px dashed rgba(0,0,0,0.2)',
                 borderRadius: id === 'target-tl' ? '50% 0 0 0' :
                     id === 'target-tr' ? '0 50% 0 0' :
                         id === 'target-bl' ? '0 0 0 50%' : '0 0 50% 0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: isFilled ? 'transparent' : 'rgba(255,255,255,0.05)'
+                background: isFilled ? 'transparent' : 'rgba(0,0,0,0.05)'
             }}
         >
             {children}
@@ -97,7 +97,7 @@ export const Page6_Puzzle = () => {
                 <div style={{
                     width: '100%',
                     height: '100%',
-                    background: 'var(--purple-deep)',
+                    // background: 'var(--purple-deep)', // Removed for global theme
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -105,13 +105,13 @@ export const Page6_Puzzle = () => {
                     gap: '3rem'
                 }}>
 
-                    <h2 style={{ fontFamily: 'var(--font-typewriter)', color: 'var(--purple-light)', marginBottom: '0.5rem' }}>
+                    <h2 style={{ fontFamily: 'var(--font-typewriter)', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
                         These moments built something.
                     </h2>
-                    <p style={{ fontFamily: 'var(--font-typewriter)', color: 'var(--cream)', fontSize: '1rem', opacity: 0.7, marginBottom: '0.5rem' }}>
+                    <p style={{ fontFamily: 'var(--font-typewriter)', color: 'var(--text-secondary)', fontSize: '1rem', opacity: 0.8, marginBottom: '0.5rem' }}>
                         Put them back together.
                     </p>
-                    <div style={{ fontFamily: 'monospace', color: 'var(--white)', fontSize: '1rem' }}>
+                    <div style={{ fontFamily: 'monospace', color: 'var(--text-secondary)', fontSize: '1rem' }}>
                         {placedCount}/4 pieces placed
                     </div>
 
@@ -154,7 +154,7 @@ export const Page6_Puzzle = () => {
                     {isComplete && (
                         <div style={{
                             textAlign: 'center',
-                            color: 'var(--white)',
+                            color: 'var(--text-main)',
                             animation: 'fadeIn 1s'
                         }}>
                             <div style={{
@@ -163,7 +163,7 @@ export const Page6_Puzzle = () => {
                                 lineHeight: '2',
                                 marginBottom: '1.5rem',
                                 whiteSpace: 'pre-line',
-                                color: 'var(--cream)'
+                                color: 'var(--text-secondary)'
                             }}>
                                 {"Every moment.\nEvery laugh.\nEvery drive.\nEvery conversation.\n\nThey all led here."}
                             </div>

@@ -71,7 +71,7 @@ export const Page9_Celebration = () => {
             <div style={{
                 width: '100%',
                 height: '100%',
-                background: 'linear-gradient(135deg, #1a0a2e 0%, #2d1050 50%, #1a0a2e 100%)',
+                // background: 'linear-gradient(135deg, #1a0a2e 0%, #2d1050 50%, #1a0a2e 100%)', // Removed for global theme
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -116,7 +116,7 @@ export const Page9_Celebration = () => {
                 <h1 style={{
                     fontFamily: 'var(--font-display)',
                     fontSize: '3.5rem',
-                    color: 'var(--white)',
+                    color: 'var(--text-main)',
                     marginBottom: '1rem',
                     textShadow: '0 5px 20px rgba(107, 63, 160, 0.8)'
                 }}>
@@ -125,7 +125,7 @@ export const Page9_Celebration = () => {
 
                 {/* Stitch Speech */}
                 <div style={{
-                    background: 'rgba(255,255,255,0.1)',
+                    background: 'rgba(255,255,255,0.7)',
                     borderRadius: '12px',
                     padding: '0.8rem 1.5rem',
                     marginBottom: '1.5rem',
@@ -137,7 +137,7 @@ export const Page9_Celebration = () => {
                     <span style={{
                         fontFamily: 'var(--font-typewriter)',
                         fontSize: '0.9rem',
-                        color: 'var(--cream)'
+                        color: 'var(--text-secondary)'
                     }}>
                         "Experiment 626 approves this date!"
                     </span>
@@ -147,10 +147,10 @@ export const Page9_Celebration = () => {
                 <div style={{
                     fontFamily: 'var(--font-typewriter)',
                     fontSize: '1rem',
-                    color: 'var(--cream)',
+                    color: 'var(--white)', // Keep light in dark box
                     lineHeight: '2',
                     marginBottom: '1.5rem',
-                    background: 'rgba(0,0,0,0.3)',
+                    background: 'rgba(0,0,0,0.6)', // Darken background slightly more for contrast
                     padding: '1.5rem 2rem',
                     borderRadius: '12px',
                     border: '1px solid var(--purple-mid)'
@@ -172,7 +172,7 @@ export const Page9_Celebration = () => {
                 <p style={{
                     fontFamily: 'var(--font-typewriter)',
                     fontSize: '0.85rem',
-                    color: 'var(--cream)',
+                    color: 'var(--text-secondary)',
                     opacity: 0.7,
                     marginBottom: '2rem'
                 }}>
@@ -197,7 +197,7 @@ export const Page9_Celebration = () => {
                 {replayCount >= 3 && (
                     <div style={{
                         marginBottom: '1rem',
-                        color: 'var(--purple-light)',
+                        color: 'var(--purple-mid)',
                         fontFamily: 'var(--font-typewriter)',
                         fontSize: '0.85rem',
                         opacity: 0.7
@@ -270,7 +270,7 @@ export const Page9_Celebration = () => {
                     bottom: '20px',
                     right: '20px',
                     fontSize: '0.7rem',
-                    color: 'rgba(255,255,255,0.2)',
+                    color: 'rgba(0,0,0,0.3)',
                     fontFamily: 'monospace'
                 }}>
                     Built with 💜 for Disha
@@ -285,6 +285,6 @@ export const Page9_Celebration = () => {
                 `}</style>
 
             </div>
-        </PageTransition>
+        </PageTransition >
     );
 };
