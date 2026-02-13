@@ -1,8 +1,0 @@
-groq>=0.12.0
-sentence-transformers>=3.0.0
-scikit-learn>=1.5.0
-numpy>=1.26.0
-hdbscan>=0.8.38
-python-dotenv>=1.0.0
-emoji>=2.14.0
-torch>=2.0.0
