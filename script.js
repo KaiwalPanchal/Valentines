@@ -91,14 +91,8 @@ const PAGES = [
 <div class="letter-title" style="margin-top:10px">${L('GUILTY')}</div>
 <p class="body-sm" style="text-align:center;margin-top:4px"><em>ABSOLUTELY, UNDENIABLY, PERFECTLY</em></p>`,
 
-    // ===== PAGE 6: Exhibits V-Z (Merged) =====
-    `<div class="exhibit"><h4>EXHIBIT V: The "Full-Out Task" Admission</h4>
-<p class="ev-meta"><strong>Type:</strong> Self-incriminating text &nbsp;|&nbsp; <strong>Content:</strong> <em>"You're easier to manage, I'm a full-out TASK."</em></p>
-<p class="body-xs"><strong>Significance:</strong> Self-incriminating testimony where the Defendant admits to high-level "Nakhras." However, the Plaintiff would like to submit a counter-plea that he enjoys the challenge, establishing this as consensual emotional chaos.</p></div>
-<div class="exhibit"><h4>EXHIBIT W: The "Coupla Coupli" Admission</h4>
-<p class="ev-meta"><strong>Type:</strong> Written confession &nbsp;|&nbsp; <strong>Content:</strong> <em>"Love how i can do coupla coupli stuff with the Panchal siblings."</em></p>
-<p class="body-xs"><strong>Significance:</strong> Irrefutable written admission acknowledging that shared activities mimic romantic partnership despite maintaining a "just friends" plea. Constitutes prima facie evidence of conspiracy to blur friendship-romance boundaries.</p></div>
-<div class="exhibit"><h4>EXHIBIT X: The Wake-Up Call Protocol</h4>
+    // ===== PAGE 6: Exhibits X, Y, Z (Split Part 2) =====
+    `<div class="exhibit"><h4>EXHIBIT X: The Wake-Up Call Protocol</h4>
 <p class="ev-meta"><strong>Type:</strong> Text + call log &nbsp;|&nbsp; <strong>Content:</strong> <em>"wake uppppppppp"</em></p>
 <p class="body-xs"><strong>Significance:</strong> Digital footprint of the Plaintiff serving as a human alarm clock. The excessive use of the letter "p" (seven instances) indicates the Defendant's comfort in making demands.</p></div>
 <div class="exhibit"><h4>EXHIBIT Y: The Art Wall Hype Requirement</h4>
@@ -108,77 +102,95 @@ const PAGES = [
 <p class="ev-meta"><strong>Type:</strong> Photos of Defendant reading/studying</p>
 <p class="body-xs"><strong>Significance:</strong> Visual support for the Plaintiff's argument that "nerds look hot," citing the Defendant's Harry Potter phase and excessive reading habits. Constitutes aggravated disorderly conduct.</p></div>`,
 
-    // ===== PAGE 7: Exhibits R, S, T, U (Merged) =====
-    `<div class="exhibit"><h4>EXHIBIT R: The Sugar Conspiracy</h4>
-<p class="ev-meta"><strong>Type:</strong> Photos of Buttercup Cupcakes and Fafda Jalebi</p>
-<p class="body-xs"><strong>Significance:</strong> Physical evidence of the "Sugar Conspiracy." Despite the Plaintiff's claims of being "health conscious," the Defendant successfully coerced the Plaintiff into consuming high-calorie contraband. Proves the Defendant's power to override the Plaintiff's dietary principles.</p></div>
-<div class="exhibit"><h4>EXHIBIT S: The Ghevar Rabdi Ranking</h4>
-<p class="ev-meta"><strong>Type:</strong> Text &nbsp;|&nbsp; <strong>Content:</strong> <em>"I thought I was your favourite Indian sweet?"</em></p>
-<p class="body-xs"><strong>Significance:</strong> The Defendant successfully argued she should rank above traditional desserts in the Plaintiff's preference hierarchy. The Plaintiff's inability to dispute this claim confirms the Defendant's complete control over his value system.</p></div>
-<div class="exhibit"><h4>EXHIBIT T: The "Bare Minimum" Negotiations</h4>
+    // ===== PAGE 7: Exhibits V, W (Split Part 1) =====
+    `<div class="exhibit"><h4>EXHIBIT V: The "Full-Out Task" Admission</h4>
+<p class="ev-meta"><strong>Type:</strong> Self-incriminating text &nbsp;|&nbsp; <strong>Content:</strong> <em>"You're easier to manage, I'm a full-out TASK."</em></p>
+<p class="body-xs"><strong>Significance:</strong> Self-incriminating testimony where the Defendant admits to high-level "Nakhras." However, the Plaintiff would like to submit a counter-plea that he enjoys the challenge, establishing this as consensual emotional chaos.</p></div>
+<div class="exhibit"><h4>EXHIBIT W: The "Coupla Coupli" Admission</h4>
+<p class="ev-meta"><strong>Type:</strong> Written confession &nbsp;|&nbsp; <strong>Content:</strong> <em>"Love how i can do coupla coupli stuff with the Panchal siblings."</em></p>
+<p class="body-xs"><strong>Significance:</strong> Irrefutable written admission acknowledging that shared activities mimic romantic partnership despite maintaining a "just friends" plea. Constitutes prima facie evidence of conspiracy to blur friendship-romance boundaries.</p></div>`,
+
+    // ===== PAGE 8: Exhibits T, U (Split Part 2) =====
+    `<div class="exhibit"><h4>EXHIBIT T: The "Bare Minimum" Negotiations</h4>
 <p class="ev-meta"><strong>Type:</strong> Text message &nbsp;|&nbsp; <strong>Content:</strong> <em>"Would you judge me if i ask you to actually get me brownies and jasuben?"</em></p>
 <p class="body-xs"><strong>Significance:</strong> Physical proof of the "redefined bare minimum." The Defendant has established that preventing her from eating "just ice cream" for dinner requires the Plaintiff to traverse the city of Ahmedabad.</p></div>
 <div class="exhibit"><h4>EXHIBIT U: The "Rabbit Teeth" Confession</h4>
 <p class="ev-meta"><strong>Type:</strong> Screenshot from roast session &nbsp;|&nbsp; <strong>Date:</strong> Feb 4, 2026</p>
 <p class="body-xs"><strong>Significance:</strong> Visual documentation of the Defendant's smile causing the Plaintiff to break character during a competitive roast session and admit "love everything about you." Forensic analysis confirms seventeen additional roasts were never delivered due to this incident.</p></div>`,
 
-    // ===== PAGE 8: Exhibits N, O, P, Q (Merged) =====
-    `<div class="exhibit"><h4>EXHIBIT N: The 5:30 AM Arrabiata Incident</h4>
-<p class="ev-meta"><strong>Type:</strong> Photographic evidence of pasta &nbsp;|&nbsp; <strong>Date:</strong> Jan 26, 2026, 05:30</p>
-<p class="body-xs"><strong>Significance:</strong> Physical proof of the Plaintiff entering "Mom Mode" at ungodly hours. The Defendant's acceptance without judgment proves conspiracy to induce emotional attachment. Sleep deprivation adds to the severity of the charge.</p></div>
-<div class="exhibit"><h4>EXHIBIT O: The Hummus Bribe</h4>
-<p class="ev-meta"><strong>Type:</strong> Photo of homemade hummus &nbsp;|&nbsp; <strong>Content:</strong> <em>"Your hummus>>>"</em></p>
-<p class="body-xs"><strong>Significance:</strong> Material evidence of "Way to the Heart" conspiracy. The triple arrow notation (>>>) indicates excessive enthusiasm, proving the effectiveness of the bribery scheme and that culinary acts of service are the primary relationship currency.</p></div>
-<div class="exhibit"><h4>EXHIBIT P: The Cupcake Conspiracy</h4>
+    // ===== PAGE 9: Exhibits R, S (Split Part 1) =====
+    `<div class="exhibit"><h4>EXHIBIT R: The Sugar Conspiracy</h4>
+<p class="ev-meta"><strong>Type:</strong> Photos of Buttercup Cupcakes and Fafda Jalebi</p>
+<p class="body-xs"><strong>Significance:</strong> Physical evidence of the "Sugar Conspiracy." Despite the Plaintiff's claims of being "health conscious," the Defendant successfully coerced the Plaintiff into consuming high-calorie contraband. Proves the Defendant's power to override the Plaintiff's dietary principles.</p></div>
+<div class="exhibit"><h4>EXHIBIT S: The Ghevar Rabdi Ranking</h4>
+<p class="ev-meta"><strong>Type:</strong> Text &nbsp;|&nbsp; <strong>Content:</strong> <em>"I thought I was your favourite Indian sweet?"</em></p>
+<p class="body-xs"><strong>Significance:</strong> The Defendant successfully argued she should rank above traditional desserts in the Plaintiff's preference hierarchy. The Plaintiff's inability to dispute this claim confirms the Defendant's complete control over his value system.</p></div>`,
+
+    // ===== PAGE 10: Exhibits P, Q (Split Part 2) =====
+    `<div class="exhibit"><h4>EXHIBIT P: The Cupcake Conspiracy</h4>
 <p class="ev-meta"><strong>Type:</strong> Google Maps History &nbsp;|&nbsp; <strong>Date:</strong> Oct-Jan, multiple</p>
 <p class="body-xs"><strong>Significance:</strong> Material evidence of bribery during "Exam Season." Demonstrates the Plaintiff's willingness to cross city lines just to ensure the Defendant eats before tests. Establishes a pattern of training the Plaintiff through positive reinforcement.</p></div>
 <div class="exhibit"><h4>EXHIBIT Q: The Sam's Pizza Defense</h4>
 <p class="ev-meta"><strong>Type:</strong> Photo + declaration &nbsp;|&nbsp; <strong>Content:</strong> <em>"Me and sam's pizza jaisa rishta it is"</em></p>
 <p class="body-xs"><strong>Significance:</strong> Evidence of the Defendant's committed relationship with an Unlimited Pizza Buffet. This exhibit proves the Plaintiff is merely a third wheel. Despite his skepticism, this location serves as a landmark for shared laughter and "sixth-grade birthday party vibes."</p></div>`,
 
-    // ===== PAGE 9: Exhibits J, K, L, M (Merged) =====
-    `<div class="exhibit"><h4>EXHIBIT J: The "Good Morning" Stipulation</h4>
-<p class="ev-meta"><strong>Type:</strong> Text mandate &nbsp;|&nbsp; <strong>Content:</strong> <em>"Kaival, it is not a good morning if you've not seen me in the morning"</em></p>
-<p class="body-xs"><strong>Significance:</strong> Proof of successful conditioning. The Defendant has reprogrammed the Plaintiff's circadian rhythm to require visual confirmation of her existence before the day can officially commence.</p></div>
-<div class="exhibit"><h4>EXHIBIT K: The Udaipur Confession</h4>
-<p class="ev-meta"><strong>Type:</strong> Chat logs during boys' trip &nbsp;|&nbsp; <strong>Date:</strong> Feb 6, 2026, Udaipur</p>
-<p class="body-xs"><strong>Significance:</strong> Despite being on vacation with friends, the Plaintiff spent the majority texting the Defendant and stating "miss you fr." Expert witnesses (friends) confirm he was "basically useless" throughout the trip.</p></div>
-<div class="exhibit"><h4>EXHIBIT L: The "Time Theft" Documentation</h4>
+    // ===== PAGE 11: Exhibits N, O (Split Part 1) =====
+    `<div class="exhibit"><h4>EXHIBIT N: The 5:30 AM Arrabiata Incident</h4>
+<p class="ev-meta"><strong>Type:</strong> Photographic evidence of pasta &nbsp;|&nbsp; <strong>Date:</strong> Jan 26, 2026, 05:30</p>
+<p class="body-xs"><strong>Significance:</strong> Physical proof of the Plaintiff entering "Mom Mode" at ungodly hours. The Defendant's acceptance without judgment proves conspiracy to induce emotional attachment. Sleep deprivation adds to the severity of the charge.</p></div>
+<div class="exhibit"><h4>EXHIBIT O: The Hummus Bribe</h4>
+<p class="ev-meta"><strong>Type:</strong> Photo of homemade hummus &nbsp;|&nbsp; <strong>Content:</strong> <em>"Your hummus>>>"</em></p>
+<p class="body-xs"><strong>Significance:</strong> Material evidence of "Way to the Heart" conspiracy. The triple arrow notation (>>>) indicates excessive enthusiasm, proving the effectiveness of the bribery scheme and that culinary acts of service are the primary relationship currency.</p></div>`,
+
+    // ===== PAGE 12: Exhibits L, M (Split Part 2) =====
+    `<div class="exhibit"><h4>EXHIBIT L: The "Time Theft" Documentation</h4>
 <p class="ev-meta"><strong>Type:</strong> Call log &nbsp;|&nbsp; <strong>Content:</strong> <em>"how am I gonna have any love life if I talk to my friends this much"</em></p>
 <p class="body-xs"><strong>Significance:</strong> Exhibit of "Time Theft." The Defendant monopolized the Plaintiff's attention for 120+ minutes, effectively sabotaging any potential romantic prospects with third parties (specifically referenced: "Ananya").</p></div>
 <div class="exhibit"><h4>EXHIBIT M: The "Donna" Comparison</h4>
 <p class="ev-meta"><strong>Type:</strong> Text &nbsp;|&nbsp; <strong>Content:</strong> <em>"you're like Donna"</em> &nbsp;|&nbsp; <strong>Date:</strong> Oct 2, 2025</p>
 <p class="body-xs"><strong>Significance:</strong> The Plaintiff compared the Defendant to Suits' Donna Paulsen, legally acknowledging her superior intuition, confidence, and ability to read his mind. Confirms the Defendant's complete mental access and monopolization capabilities.</p></div>`,
 
-    // ===== PAGE 10: Exhibits F, G, H, I (Merged) =====
-    `<div class="exhibit"><h4>EXHIBIT F: The "Green Eyes" Testimony</h4>
-<p class="ev-meta"><strong>Type:</strong> Vehicular testimony &nbsp;|&nbsp; <strong>Content:</strong> <em>"Why do your eyes look cute... green I mean"</em> &nbsp;|&nbsp; <strong>Date:</strong> Feb 5, 2026</p>
-<p class="body-xs"><strong>Significance:</strong> Eyewitness testimony regarding dangerous eye color changes in car lighting. Proves the Plaintiff is physically incapable of not complimenting the Defendant. Timing during vehicle operation establishes reckless endangerment.</p></div>
-<div class="exhibit"><h4>EXHIBIT G: The Academic Intimidation File</h4>
-<p class="ev-meta"><strong>Type:</strong> Transcript &nbsp;|&nbsp; <strong>Content:</strong> <em>"Topped my batch in econ... overall 45/50"</em></p>
-<p class="body-xs"><strong>Significance:</strong> Documentary evidence of intimidating intelligence combined with physical beauty, proving the Plaintiff is hopelessly out of his league yet arguably the proudest person in any room when she succeeds. This combination constitutes an illegal monopoly on desirable qualities.</p></div>
-<div class="exhibit"><h4>EXHIBIT H: The Barbie Economics Thesis</h4>
+    // ===== PAGE 13: Exhibits J, K (Split Part 1) =====
+    `<div class="exhibit"><h4>EXHIBIT J: The "Good Morning" Stipulation</h4>
+<p class="ev-meta"><strong>Type:</strong> Text mandate &nbsp;|&nbsp; <strong>Content:</strong> <em>"Kaival, it is not a good morning if you've not seen me in the morning"</em></p>
+<p class="body-xs"><strong>Significance:</strong> Proof of successful conditioning. The Defendant has reprogrammed the Plaintiff's circadian rhythm to require visual confirmation of her existence before the day can officially commence.</p></div>
+<div class="exhibit"><h4>EXHIBIT K: The Udaipur Confession</h4>
+<p class="ev-meta"><strong>Type:</strong> Chat logs during boys' trip &nbsp;|&nbsp; <strong>Date:</strong> Feb 6, 2026, Udaipur</p>
+<p class="body-xs"><strong>Significance:</strong> Despite being on vacation with friends, the Plaintiff spent the majority texting the Defendant and stating "miss you fr." Expert witnesses (friends) confirm he was "basically useless" throughout the trip.</p></div>`,
+
+    // ===== PAGE 14: Exhibits H, I (Split Part 2) =====
+    `<div class="exhibit"><h4>EXHIBIT H: The Barbie Economics Thesis</h4>
 <p class="ev-meta"><strong>Type:</strong> 14-page academic paper &nbsp;|&nbsp; <strong>Date:</strong> Oct 2, 2025</p>
 <p class="body-xs"><strong>Significance:</strong> The "nerd defense." Beneath the Defendant's constant yapping lies an intellect capable of writing 14 pages on dolls and finance, causing the Plaintiff to be visibly impressed (documented reactions: "tf" and "crazy"). Weaponized intelligence as part of the distraction conspiracy.</p></div>
 <div class="exhibit"><h4>EXHIBIT I: The Nickname Alteration Incident</h4>
 <p class="ev-meta"><strong>Type:</strong> Screenshot &nbsp;|&nbsp; <strong>Content:</strong> <em>'galat_dishaaa set your nickname to Kaival'</em></p>
 <p class="body-xs"><strong>Significance:</strong> Malicious alteration of identity. Willful refusal to learn proper spelling ("Kaiwal"), constituting a Class A Felony of Teasing. Combined with "Bhaiya" despite being the "Baby," establishes a pattern of psychological warfare.</p></div>`,
 
-    // ===== PAGE 11: Exhibits C, D, E (Merged) =====
+    // ===== PAGE 15: Exhibits F, G (Split Part 1) =====
+    `<div class="exhibit"><h4>EXHIBIT F: The "Green Eyes" Testimony</h4>
+<p class="ev-meta"><strong>Type:</strong> Vehicular testimony &nbsp;|&nbsp; <strong>Content:</strong> <em>"Why do your eyes look cute... green I mean"</em> &nbsp;|&nbsp; <strong>Date:</strong> Feb 5, 2026</p>
+<p class="body-xs"><strong>Significance:</strong> Eyewitness testimony regarding dangerous eye color changes in car lighting. Proves the Plaintiff is physically incapable of not complimenting the Defendant. Timing during vehicle operation establishes reckless endangerment.</p></div>
+<div class="exhibit"><h4>EXHIBIT G: The Academic Intimidation File</h4>
+<p class="ev-meta"><strong>Type:</strong> Transcript &nbsp;|&nbsp; <strong>Content:</strong> <em>"Topped my batch in econ... overall 45/50"</em></p>
+<p class="body-xs"><strong>Significance:</strong> Documentary evidence of intimidating intelligence combined with physical beauty, proving the Plaintiff is hopelessly out of his league yet arguably the proudest person in any room when she succeeds. This combination constitutes an illegal monopoly on desirable qualities.</p></div>`,
+
+    // ===== PAGE 16: Exhibit E (Color Theory) =====
     `<div class="exhibit"><h4>EXHIBIT E: The "Color Theory" Paradox</h4>
 <p class="ev-meta"><strong>Type:</strong> Photographic evidence (three photographs)</p>
 <p class="body-xs"><strong>Sub-exhibit E1:</strong> Defendant in Red (declared "hot," Dec 3, 2025)<br>
 <strong>Sub-exhibit E2:</strong> Defendant in White (declared "gorgeous," Jan 6, 2026)<br>
 <strong>Sub-exhibit E3:</strong> Defendant in All-Black Pickleball gear (declared "pretty," Dec 24, 2025)</p>
-<p class="body-xs"><strong>Significance:</strong> Statistical impossibility. No human should look "stunning" across the entire color spectrum. The Plaintiff's fashion consultant has confirmed this is "clearly a trap" and constitutes an unfair advantage. Establishes supernatural levels of attractiveness, qualifying as a controlled substance under Emotional Crimes Statute § 143.</p></div>
-<div class="exhibit"><h4>EXHIBIT C: The Hypnotic Eyes Documentation</h4>
+<p class="body-xs"><strong>Significance:</strong> Statistical impossibility. No human should look "stunning" across the entire color spectrum. The Plaintiff's fashion consultant has confirmed this is "clearly a trap" and constitutes an unfair advantage. Establishes supernatural levels of attractiveness, qualifying as a controlled substance under Emotional Crimes Statute § 143.</p></div>`,
+
+    // ===== PAGE 17: Exhibits C, D (Split) =====
+    `<div class="exhibit"><h4>EXHIBIT C: The Hypnotic Eyes Documentation</h4>
 <p class="ev-meta"><strong>Type:</strong> Photo + written testimony &nbsp;|&nbsp; <strong>Content:</strong> <em>"Hypnotize teri karti hai menu"</em> &nbsp;|&nbsp; <strong>Date:</strong> Jan 21, 2026</p>
 <p class="body-xs"><strong>Significance:</strong> Documentary evidence of weaponized beauty causing morning productivity loss. The Defendant's eyes serve as the primary instrument of cardiac larceny. Medical experts confirm symptoms consistent with "being absolutely whipped."</p></div>
 <div class="exhibit"><h4>EXHIBIT D: The "Tom and Jerry" Admission</h4>
 <p class="ev-meta"><strong>Type:</strong> Text &nbsp;|&nbsp; <strong>Content:</strong> <em>"Tom and jerry is gonna be the caption"</em> &nbsp;|&nbsp; <strong>Date:</strong> Oct 2, 2025</p>
 <p class="body-xs"><strong>Significance:</strong> Admission acknowledging "Chaotic Co-dependency." Despite constant bickering, the parties fit together like a classic cartoon duo. Establishes that the heart was taken willingly but irreversibly.</p></div>`,
 
-    // ===== PAGE 12: THE EVIDENCE header + Exhibits A+B =====
+    // ===== PAGE 18: THE EVIDENCE header + Exhibits A+B =====
     `<div class="letter-title">${L('EVIDENCE')}</div>
 <div class="exhibit"><h4>EXHIBIT A: The "Safe Space" Confession</h4>
 <p class="ev-meta"><strong>Type:</strong> Text message &nbsp;|&nbsp; <strong>Content:</strong> <em>"And I love that cause it just makes you a safe space."</em> &nbsp;|&nbsp; <strong>Date:</strong> Oct 2025</p>
@@ -187,7 +199,17 @@ const PAGES = [
 <p class="ev-meta"><strong>Type:</strong> Third-party observation &nbsp;|&nbsp; <strong>Content:</strong> <em>"no boy would take so many efforts unless he likes a girl"</em></p>
 <p class="body-xs"><strong>Significance:</strong> Expert witness testimony from the Defendant's mother confirming that the Plaintiff's behavior is transparent to all parties. The witness's decades of experience in identifying romantic intent makes her testimony admissible and conclusive.</p></div>`,
 
-    // ===== PAGE 13: Count VI (Merged) =====
+    // ===== PAGE 19: Count VI (Split Part 2) =====
+    `<h3 class="count-title">COUNT VI: DISORDERLY CONDUCT (continued)</h3>
+<h3 class="section-sub"><small>(Pattern of Adorable Misconduct)</small></h3>
+<ul class="body-xs compact-list">
+<li><strong>Being a "Full-Out TASK":</strong> Self-incriminating admission yet proving strictly worth the <em>nakhras</em></li>
+<li><strong>The "Donna" Comparison:</strong> The Plaintiff comparing the Defendant to Suits' Donna Paulsen, legally acknowledging her superior intuition, confidence, and ability to read his mind</li>
+<li><strong>The Barbie Economics Thesis:</strong> Writing a 14-page paper on dolls and finance, causing the Plaintiff to respond with "tf" and "crazy" (evidence of intimidation through intelligence)</li>
+<li><strong>The "Coupla Coupli" Admission:</strong> Written confession stating "Love how i can do coupla coupli stuff with the Panchal siblings," establishing pattern of romantic mimicry</li>
+</ul>`,
+
+    // ===== PAGE 20: Count VI (Split Part 1) =====
     `<h3 class="count-title">COUNT VI: DISORDERLY CONDUCT</h3>
 <h3 class="section-sub"><small>(First-Degree Drama & Curiosity)</small></h3>
 <p class="body-xs">The Defendant engaged in a sustained pattern of adorable misconduct:</p>
@@ -196,13 +218,9 @@ const PAGES = [
 <li><strong>First-Degree Curiosity:</strong> Being "so curious about anything and everything," forcing the Plaintiff to find her adorable</li>
 <li><strong>The Rabbit Teeth Incident:</strong> Displaying a smile (Feb 4, 2026) that caused the Plaintiff to abandon a roast mid-session and admit "love everything about you"</li>
 <li><strong>Academic Intimidation:</strong> Topping her batch in Economics (45/50) while simultaneously remaining impossibly cute</li>
-<li><strong>Being a "Full-Out TASK":</strong> Self-incriminating admission yet proving strictly worth the <em>nakhras</em></li>
-<li><strong>The "Donna" Comparison:</strong> The Plaintiff comparing the Defendant to Suits' Donna Paulsen, legally acknowledging her superior intuition, confidence, and ability to read his mind</li>
-<li><strong>The Barbie Economics Thesis:</strong> Writing a 14-page paper on dolls and finance, causing the Plaintiff to respond with "tf" and "crazy" (evidence of intimidation through intelligence)</li>
-<li><strong>The "Coupla Coupli" Admission:</strong> Written confession stating "Love how i can do coupla coupli stuff with the Panchal siblings," establishing pattern of romantic mimicry</li>
 </ul>`,
 
-    // ===== PAGE 14: Count V =====
+    // ===== PAGE 21: Count V =====
     `<h3 class="count-title">COUNT V: CULINARY EXTORTION & CONSPIRACY</h3>
 <p class="body-xs">The Defendant coerced the Plaintiff into a complex food-based conspiracy:</p>
 <ul class="body-xs compact-list">
@@ -214,7 +232,7 @@ const PAGES = [
 <li><strong>The Sugar Conspiracy:</strong> Coercing consumption of Buttercup Cupcakes and Fafda Jalebi despite "health conscious" claims</li>
 </ul>`,
 
-    // ===== PAGE 15: Counts III + IV =====
+    // ===== PAGE 22: Counts III + IV (Merged back) =====
     `<h3 class="count-title">COUNT III: AGGRAVATED "BHAIYA" VIOLATION</h3>
 <p class="body-xs">On multiple occasions, the Defendant maliciously deployed "Bhaiya" and "Kaival Bhaiya" despite knowing she is the "Baby" in this scenario, the Plaintiff's name is spelled "Kaiwal," and this constitutes a Class A Felony of Teasing.</p>
 <h3 class="count-title" style="margin-top:12px">COUNT IV: MONOPOLIZATION OF MENTAL BANDWIDTH</h3>
@@ -227,7 +245,7 @@ const PAGES = [
 <li>Monopolizing 120+ minute calls, sabotaging potential romantic prospects</li>
 </ul>`,
 
-    // ===== PAGE 16: Count II =====
+    // ===== PAGE 23: Count II =====
     `<h3 class="count-title">COUNT II: CRIMINAL DISTRACTION & FELONIOUS BEAUTY</h3>
 <p class="body-xs">The Defendant is accused of wielding illegal levels of attractiveness, causing "Tunnel Vision Syndrome" and loss of vocabulary:</p>
 <ul class="body-xs compact-list">
@@ -238,7 +256,7 @@ const PAGES = [
 <li><strong>Violation of Public Safety:</strong> Cited for "looking cute all the time" without a permit or warning label</li>
 </ul>`,
 
-    // ===== PAGE 17: Indictment + Count I =====
+    // ===== PAGE 24: Indictment + Count I =====
     `<div class="letter-title" style="margin-bottom:6px">${L('INDICTMENT')}</div>
 <p class="body-sm"><strong>The People vs. The Defendant</strong></p>
 <p class="body-xs">The Defendant is hereby charged with the following offenses, each constituting a severe violation of the Plaintiff's emotional well-being:</p>
@@ -252,7 +270,7 @@ const PAGES = [
 <li>Deploying maternal witness testimony: "no boy would take so many efforts unless he likes a girl"</li>
 </ul>`,
 
-    // ===== PAGE 18 (TOP - first seen): Cover =====
+    // ===== PAGE 25 (TOP - first seen): Cover =====
     `<p class="body-sm" style="text-align:center">IN THE COURT OF ETERNAL</p>
 <div class="letter-title">${L('LOVE')}</div>
 <p class="divider">━━━━━━━━━━━━━━━━━━━━━━━</p>
@@ -277,81 +295,107 @@ document.addEventListener('DOMContentLoaded', () => {
     // SCALED SIZES (approx 1.3x - 1.5x) and MORE FREQUENT
     const T = 'assets/textures/';
     const DECOS = {
-        // Cover page (18)
-        18: [
+        // Cover page (25)
+        25: [
             { src: 'love-seal.png', pos: 'bottom-right', w: 180, h: 180, rot: -10 },
             { src: 'thumbtacks1.png', pos: 'top-right', w: 48, h: 48 },
             { src: 'thumbtacks3.png', pos: 'bottom-left', w: 48, h: 48, rot: 45 },
         ],
-        // Indictment (17)
-        17: [
+        // Indictment (24)
+        24: [
             { src: 'thumbtacks2.png', pos: 'top-left', w: 45, h: 45 },
             { src: 'paper-texture.png', pos: 'bottom-right', w: 150, h: 150, opacity: 0.2 },
         ],
-        // Count II (16)
-        16: [
+        // Count II (23)
+        23: [
             { src: 'top-left-corner-doodle-hearts.png', pos: 'top-left', w: 150, h: 150, opacity: 0.6 },
             { src: 'thumbtacks1.png', pos: 'bottom-right', w: 45, h: 45 },
         ],
-        // Counts III+IV (15)
-        15: [
+        // Counts III + IV (22)
+        22: [
             { src: 'thumbtacks3.png', pos: 'top-right', w: 45, h: 45 },
             { src: 'red-balloons.png', pos: 'bottom-left', w: 135, h: 135, opacity: 0.4 },
         ],
-        // Count V (14)
-        14: [
+        // Count V (21)
+        21: [
+            { src: 'thumbtacks2.png', pos: 'bottom-right', w: 45, h: 45 },
+            { src: 'kisses-corner-top-left.png', pos: 'top-left', w: 120, h: 120, opacity: 0.3 },
+        ],
+        // Count VI (20)
+        20: [
             { src: 'newspaper-heart.png', pos: 'bottom-right', w: 135, h: 135, rot: 5, opacity: 0.8 },
             { src: 'thumbtacks2.png', pos: 'top-left', w: 45, h: 45 },
         ],
-        // Count VI (13) - Merged
-        13: [
+        // Count VI Part 2 (19)
+        19: [
             { src: 'thumbtacks1.png', pos: 'top-left', w: 45, h: 45 },
             { src: 'favorite-person-sticker.png', pos: 'bottom-right', w: 150, h: 150, rot: 8, opacity: 0.8 },
             { src: 'kisses-corner-top-left.png', pos: 'bottom-left', w: 120, h: 120, opacity: 0.3, rot: 180 },
-            { src: 'bottom-left-corner-picnic-cloth.png', pos: 'top-right', w: 150, h: 150, opacity: 0.3, rot: 90 },
         ],
-        // Evidence A+B (12)
-        12: [
+        // Evidence A+B (18)
+        18: [
             { src: 'thumbtacks2.png', pos: 'top-right', w: 45, h: 45 },
-            { src: 'kisses-corner-top-left.png', pos: 'top-left', w: 165, h: 165, opacity: 0.6 },
             { src: 'love-seal.png', pos: 'bottom-right', w: 135, h: 135, rot: 20, opacity: 0.5 },
         ],
-        // Exhibits C, D, E (11) - Merged
-        11: [
+        // Exhibit C, D (17)
+        17: [
             { src: 'thumbtacks3.png', pos: 'bottom-left', w: 45, h: 45 },
             { src: 'top-left-corner-doodle-hearts.png', pos: 'top-right', w: 135, h: 135, opacity: 0.4, rot: 90 },
-            { src: 'red-balloons.png', pos: 'bottom-left', w: 225, h: 225, opacity: 0.7 }, // Might overlap with thumbtacks3
+        ],
+        // Exhibit E (16)
+        16: [
+            { src: 'red-balloons.png', pos: 'bottom-left', w: 225, h: 225, opacity: 0.7 },
             { src: 'thumbtacks1.png', pos: 'top-right', w: 68, h: 68 },
         ],
-        // Exhibits F, G, H, I (10) - Merged
-        10: [
+        // Exhibits F, G (15)
+        15: [
             { src: 'thumbtacks3.png', pos: 'top-left', w: 68, h: 68 },
             { src: 'newspaper-heart.png', pos: 'bottom-right', w: 180, h: 180, opacity: 0.5 },
-            { src: 'polaroid-solo.png', pos: 'top-right', w: 180, h: 180, opacity: 0.3, rot: -10 },
         ],
-        // Exhibits J, K, L, M (9) - Merged
-        9: [
+        // Exhibits H, I (14)
+        14: [
+            { src: 'polaroid-solo.png', pos: 'top-right', w: 180, h: 180, opacity: 0.3, rot: -10 },
+            { src: 'thumbtacks2.png', pos: 'bottom-left', w: 45, h: 45 },
+        ],
+        // Exhibits J, K (13)
+        13: [
             { src: 'bottom-left-corner-doodle-hearts.png', pos: 'bottom-left', w: 248, h: 248, opacity: 0.6 },
             { src: 'thumbtacks2.png', pos: 'top-right', w: 68, h: 68 },
-            { src: 'kisses-corner-top-left.png', pos: 'bottom-right', w: 225, h: 225, opacity: 0.4, rot: 180 },
         ],
-        // Exhibits N, O, P, Q (8) - Merged
-        8: [
+        // Exhibits L, M (12)
+        12: [
+            { src: 'kisses-corner-top-left.png', pos: 'bottom-right', w: 225, h: 225, opacity: 0.4, rot: 180 },
+            { src: 'thumbtacks1.png', pos: 'top-left', w: 45, h: 45 },
+        ],
+        // Exhibits N, O (11)
+        11: [
             { src: 'disco-ball.png', pos: 'top-right', w: 180, h: 180, opacity: 0.7, rot: 15 },
-            { src: 'bottom-left-corner-picnic-cloth.png', pos: 'bottom-left', w: 270, h: 270, opacity: 0.5 },
             { src: 'favorite-person-sticker.png', pos: 'top-left', w: 180, h: 180, opacity: 0.4 },
         ],
-        // Exhibits R, S, T, U (7) - Merged
-        7: [
+        // Exhibits P, Q (10)
+        10: [
+            { src: 'bottom-left-corner-picnic-cloth.png', pos: 'bottom-left', w: 270, h: 270, opacity: 0.5 },
+            { src: 'thumbtacks3.png', pos: 'top-right', w: 45, h: 45 },
+        ],
+        // Exhibits R, S (9)
+        9: [
             { src: 'thumbtacks1.png', pos: 'top-right', w: 68, h: 68 },
-            { src: 'red-balloons.png', pos: 'bottom-left', w: 180, h: 180, opacity: 0.5 },
             { src: 'newspaper-heart.png', pos: 'top-right', w: 158, h: 158, opacity: 0.5 },
         ],
-        // Exhibits V, W, X, Y, Z (6) - Merged
-        6: [
+        // Exhibits T, U (8)
+        8: [
+            { src: 'red-balloons.png', pos: 'bottom-left', w: 180, h: 180, opacity: 0.5 },
+            { src: 'thumbtacks2.png', pos: 'bottom-right', w: 45, h: 45 },
+        ],
+        // Exhibits V, W (7)
+        7: [
             { src: 'bottom-right-corner-kisses-lipstick.png', pos: 'bottom-right', w: 248, h: 248, opacity: 0.6 },
             { src: 'thumbtacks3.png', pos: 'top-left', w: 68, h: 68 },
+        ],
+        // Exhibits X, Y, Z (6)
+        6: [
             { src: 'disco-ball.png', pos: 'bottom-left', w: 158, h: 158, opacity: 0.5 },
+            { src: 'thumbtacks1.png', pos: 'top-right', w: 45, h: 45 },
         ],
         // Verdict (5)
         5: [
