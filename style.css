@@ -1115,3 +1115,73 @@ h3 {
 .placeholder-box {
     display: none;
 }
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* Adjust body to ensure no scrolling */
+    body {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* 
+       On mobile, we want to focus on the RIGHT panel (the stack).
+       The folder is 920px wide when open. Center is 460px.
+       Right panel center is ~690px from left (460 + 230).
+       To center the right panel on screen:
+       TranslateX should move the whole container left.
+    */
+    .folder-3d-container.open {
+        /* 
+           Approximate scaling:
+           If viewport is 390px (iPhone), we need to fit the 460px panel.
+           Scale ~0.8 to 0.85 should work.
+           TranslateX: shift left by approx 25% of total width to center the right half.
+        */
+        transform: translateX(-25%) scale(0.85);
+        transform-origin: center center;
+    }
+
+    /* Closed state scaling */
+    .folder-3d-container {
+        transform: scale(0.75);
+    }
+
+    /* When looking at the stack, tossed pages should go OFF SCREEN to the left */
+    .paper-doc.tossed {
+        /* Move far left so it doesn't overlap the stack we are reading */
+        transform:
+            translate(-800px, calc(var(--toss-index) * 2px)) rotate(var(--toss-rotation)) !important;
+        opacity: 0;
+        /* Hide them precisely to avoid distraction */
+        pointer-events: none;
+        /* Can't click them to return easily - rely on swipe right */
+    }
+
+    /* 
+       Adjust the "Back Panel" (Tab) to not stick out weirdly if scaled 
+    */
+    .folder-back-panel::before {
+        right: 20px;
+        /* Shift tab slightly if needed */
+    }
+
+    /* Sticky notes and decorations might need slight position tweaks if they get cut off */
+    .sticky-note-cover {
+        right: 10px;
+        bottom: 80px;
+    }
+}
+
+/* Specific tweaks for very small screens */
+@media (max-width: 400px) {
+    .folder-3d-container.open {
+        transform: translateX(-26%) scale(0.75);
+    }
+}

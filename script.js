@@ -569,6 +569,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let folderX = 0, folderY = 0;
     let hasMoved = false;
 
+    // Mouse Events
     folder.addEventListener('mousedown', (e) => {
         if (folder.classList.contains('open')) return;
         isDragging = true;
@@ -589,13 +590,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('mouseup', () => {
         if (!isDragging) return;
-        // If dragged significantly, don't open
         if (hasMoved) {
             setTimeout(() => { hasMoved = false; }, 50);
         }
         isDragging = false;
         folder.classList.remove('dragging');
     });
+
+    // Touch Events for Closed Folder Dragging
+    folder.addEventListener('touchstart', (e) => {
+        if (folder.classList.contains('open')) return;
+        if (e.touches.length > 1) return; // Ignore multitouch
+
+        isDragging = true;
+        hasMoved = false;
+        const touch = e.touches[0];
+        dragStartX = touch.clientX - folderX;
+        dragStartY = touch.clientY - folderY;
+        folder.classList.add('dragging');
+        // Don't preventDefault here to allow scrolling if needed, but we have overflow:hidden so it's fine.
+    }, { passive: false });
+
+    document.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const touch = e.touches[0];
+        folderX = touch.clientX - dragStartX;
+        folderY = touch.clientY - dragStartY;
+        // Check for mobile match to apply correct scale
+        const isMobile = window.innerWidth <= 768;
+        const scale = isMobile ? 0.75 : 1.3;
+
+        folder.style.transform = `translate(${folderX}px, ${folderY}px) scale(${scale})`;
+        hasMoved = true;
+        e.preventDefault(); // Prevent scrolling while dragging
+    }, { passive: false });
+
+    document.addEventListener('touchend', () => {
+        if (!isDragging) return;
+        if (hasMoved) {
+            setTimeout(() => { hasMoved = false; }, 50);
+        }
+        isDragging = false;
+        folder.classList.remove('dragging');
+    });
+
+    // ===========================================
+    // MOBILE SWIPE NAVIGATION
+    // ===========================================
+    let touchStartX = 0;
+    let touchEndY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+        if (!folder.classList.contains('open')) return;
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: false });
+
+    document.addEventListener('touchend', (e) => {
+        if (!folder.classList.contains('open')) return;
+        let touchEndX = e.changedTouches[0].screenX;
+        handleSwipeGesture(touchStartX, touchEndX);
+    }, { passive: false });
+
+    function handleSwipeGesture(startX, endX) {
+        const threshold = 50; // min distance for swipe
+        const distance = startX - endX;
+
+        // Swipe Left (positive distance) -> Next Page (Toss)
+        if (distance > threshold) {
+            if (currentIndex >= 0) showNextCard();
+        }
+
+        // Swipe Right (negative distance) -> Previous Page (Return)
+        if (distance < -threshold) {
+            // On mobile, if all pages are returned (currentIndex = max), 
+            // a swipe right might mean "Close Folder" if at the start? 
+            // But existing logic handles folder close if currentIndex is max.
+            if (currentIndex >= docs.length - 1) {
+                folder.classList.remove('open');
+            } else {
+                returnPreviousCard();
+            }
+        }
+    }
 });
 
 // ============================================================
